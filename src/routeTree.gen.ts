@@ -13,6 +13,14 @@ import { Route as IndexRouteImport } from './routes/index'
 import { Route as AdminRouteImport } from './routes/admin'
 import { Route as DashboardRouteImport } from './routes/dashboard'
 import { Route as AdminIndexRouteImport } from './routes/admin.index'
+import { Route as AdminAnalyticsRouteImport } from './routes/admin.analytics'
+import { Route as AdminAuditRouteImport } from './routes/admin.audit'
+import { Route as AdminCardsRouteImport } from './routes/admin.cards'
+import { Route as AdminSettingsRouteImport } from './routes/admin.settings'
+import { Route as AdminStrategiesRouteImport } from './routes/admin.strategies'
+import { Route as AdminTransactionsRouteImport } from './routes/admin.transactions'
+import { Route as AdminUsersRouteImport } from './routes/admin.users'
+import { Route as AdminYieldsRouteImport } from './routes/admin.yields'
 import { Route as DashboardIndexRouteImport } from './routes/dashboard.index'
 import { Route as DashboardCopilotRouteImport } from './routes/dashboard.copilot'
 import { Route as DashboardGoalsRouteImport } from './routes/dashboard.goals'
@@ -42,6 +50,46 @@ const DashboardRoute = DashboardRouteImport.update({
 const AdminIndexRoute = AdminIndexRouteImport.update({
   id: '/',
   path: '/',
+  getParentRoute: () => AdminRoute,
+} as any)
+const AdminAnalyticsRoute = AdminAnalyticsRouteImport.update({
+  id: '/analytics',
+  path: '/analytics',
+  getParentRoute: () => AdminRoute,
+} as any)
+const AdminAuditRoute = AdminAuditRouteImport.update({
+  id: '/audit',
+  path: '/audit',
+  getParentRoute: () => AdminRoute,
+} as any)
+const AdminCardsRoute = AdminCardsRouteImport.update({
+  id: '/cards',
+  path: '/cards',
+  getParentRoute: () => AdminRoute,
+} as any)
+const AdminSettingsRoute = AdminSettingsRouteImport.update({
+  id: '/settings',
+  path: '/settings',
+  getParentRoute: () => AdminRoute,
+} as any)
+const AdminStrategiesRoute = AdminStrategiesRouteImport.update({
+  id: '/strategies',
+  path: '/strategies',
+  getParentRoute: () => AdminRoute,
+} as any)
+const AdminTransactionsRoute = AdminTransactionsRouteImport.update({
+  id: '/transactions',
+  path: '/transactions',
+  getParentRoute: () => AdminRoute,
+} as any)
+const AdminUsersRoute = AdminUsersRouteImport.update({
+  id: '/users',
+  path: '/users',
+  getParentRoute: () => AdminRoute,
+} as any)
+const AdminYieldsRoute = AdminYieldsRouteImport.update({
+  id: '/yields',
+  path: '/yields',
   getParentRoute: () => AdminRoute,
 } as any)
 const DashboardIndexRoute = DashboardIndexRouteImport.update({
@@ -99,6 +147,14 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/admin': typeof AdminRouteWithChildren
   '/dashboard': typeof DashboardRouteWithChildren
+  '/admin/analytics': typeof AdminAnalyticsRoute
+  '/admin/audit': typeof AdminAuditRoute
+  '/admin/cards': typeof AdminCardsRoute
+  '/admin/settings': typeof AdminSettingsRoute
+  '/admin/strategies': typeof AdminStrategiesRoute
+  '/admin/transactions': typeof AdminTransactionsRoute
+  '/admin/users': typeof AdminUsersRoute
+  '/admin/yields': typeof AdminYieldsRoute
   '/dashboard/copilot': typeof DashboardCopilotRoute
   '/dashboard/goals': typeof DashboardGoalsRoute
   '/dashboard/help': typeof DashboardHelpRoute
@@ -113,6 +169,14 @@ export interface FileRoutesByFullPath {
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/admin/analytics': typeof AdminAnalyticsRoute
+  '/admin/audit': typeof AdminAuditRoute
+  '/admin/cards': typeof AdminCardsRoute
+  '/admin/settings': typeof AdminSettingsRoute
+  '/admin/strategies': typeof AdminStrategiesRoute
+  '/admin/transactions': typeof AdminTransactionsRoute
+  '/admin/users': typeof AdminUsersRoute
+  '/admin/yields': typeof AdminYieldsRoute
   '/dashboard/copilot': typeof DashboardCopilotRoute
   '/dashboard/goals': typeof DashboardGoalsRoute
   '/dashboard/help': typeof DashboardHelpRoute
@@ -130,6 +194,14 @@ export interface FileRoutesById {
   '/': typeof IndexRoute
   '/admin': typeof AdminRouteWithChildren
   '/dashboard': typeof DashboardRouteWithChildren
+  '/admin/analytics': typeof AdminAnalyticsRoute
+  '/admin/audit': typeof AdminAuditRoute
+  '/admin/cards': typeof AdminCardsRoute
+  '/admin/settings': typeof AdminSettingsRoute
+  '/admin/strategies': typeof AdminStrategiesRoute
+  '/admin/transactions': typeof AdminTransactionsRoute
+  '/admin/users': typeof AdminUsersRoute
+  '/admin/yields': typeof AdminYieldsRoute
   '/dashboard/copilot': typeof DashboardCopilotRoute
   '/dashboard/goals': typeof DashboardGoalsRoute
   '/dashboard/help': typeof DashboardHelpRoute
@@ -148,6 +220,14 @@ export interface FileRouteTypes {
     | '/'
     | '/admin'
     | '/dashboard'
+    | '/admin/analytics'
+    | '/admin/audit'
+    | '/admin/cards'
+    | '/admin/settings'
+    | '/admin/strategies'
+    | '/admin/transactions'
+    | '/admin/users'
+    | '/admin/yields'
     | '/dashboard/copilot'
     | '/dashboard/goals'
     | '/dashboard/help'
@@ -162,6 +242,14 @@ export interface FileRouteTypes {
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
+    | '/admin/analytics'
+    | '/admin/audit'
+    | '/admin/cards'
+    | '/admin/settings'
+    | '/admin/strategies'
+    | '/admin/transactions'
+    | '/admin/users'
+    | '/admin/yields'
     | '/dashboard/copilot'
     | '/dashboard/goals'
     | '/dashboard/help'
@@ -178,6 +266,14 @@ export interface FileRouteTypes {
     | '/'
     | '/admin'
     | '/dashboard'
+    | '/admin/analytics'
+    | '/admin/audit'
+    | '/admin/cards'
+    | '/admin/settings'
+    | '/admin/strategies'
+    | '/admin/transactions'
+    | '/admin/users'
+    | '/admin/yields'
     | '/dashboard/copilot'
     | '/dashboard/goals'
     | '/dashboard/help'
@@ -225,6 +321,62 @@ declare module '@tanstack/react-router' {
       path: '/'
       fullPath: '/admin/'
       preLoaderRoute: typeof AdminIndexRouteImport
+      parentRoute: typeof AdminRoute
+    }
+    '/admin/analytics': {
+      id: '/admin/analytics'
+      path: '/analytics'
+      fullPath: '/admin/analytics'
+      preLoaderRoute: typeof AdminAnalyticsRouteImport
+      parentRoute: typeof AdminRoute
+    }
+    '/admin/audit': {
+      id: '/admin/audit'
+      path: '/audit'
+      fullPath: '/admin/audit'
+      preLoaderRoute: typeof AdminAuditRouteImport
+      parentRoute: typeof AdminRoute
+    }
+    '/admin/cards': {
+      id: '/admin/cards'
+      path: '/cards'
+      fullPath: '/admin/cards'
+      preLoaderRoute: typeof AdminCardsRouteImport
+      parentRoute: typeof AdminRoute
+    }
+    '/admin/settings': {
+      id: '/admin/settings'
+      path: '/settings'
+      fullPath: '/admin/settings'
+      preLoaderRoute: typeof AdminSettingsRouteImport
+      parentRoute: typeof AdminRoute
+    }
+    '/admin/strategies': {
+      id: '/admin/strategies'
+      path: '/strategies'
+      fullPath: '/admin/strategies'
+      preLoaderRoute: typeof AdminStrategiesRouteImport
+      parentRoute: typeof AdminRoute
+    }
+    '/admin/transactions': {
+      id: '/admin/transactions'
+      path: '/transactions'
+      fullPath: '/admin/transactions'
+      preLoaderRoute: typeof AdminTransactionsRouteImport
+      parentRoute: typeof AdminRoute
+    }
+    '/admin/users': {
+      id: '/admin/users'
+      path: '/users'
+      fullPath: '/admin/users'
+      preLoaderRoute: typeof AdminUsersRouteImport
+      parentRoute: typeof AdminRoute
+    }
+    '/admin/yields': {
+      id: '/admin/yields'
+      path: '/yields'
+      fullPath: '/admin/yields'
+      preLoaderRoute: typeof AdminYieldsRouteImport
       parentRoute: typeof AdminRoute
     }
     '/dashboard/': {
@@ -301,10 +453,26 @@ declare module '@tanstack/react-router' {
 }
 
 interface AdminRouteChildren {
+  AdminAnalyticsRoute: typeof AdminAnalyticsRoute
+  AdminAuditRoute: typeof AdminAuditRoute
+  AdminCardsRoute: typeof AdminCardsRoute
+  AdminSettingsRoute: typeof AdminSettingsRoute
+  AdminStrategiesRoute: typeof AdminStrategiesRoute
+  AdminTransactionsRoute: typeof AdminTransactionsRoute
+  AdminUsersRoute: typeof AdminUsersRoute
+  AdminYieldsRoute: typeof AdminYieldsRoute
   AdminIndexRoute: typeof AdminIndexRoute
 }
 
 const AdminRouteChildren: AdminRouteChildren = {
+  AdminAnalyticsRoute: AdminAnalyticsRoute,
+  AdminAuditRoute: AdminAuditRoute,
+  AdminCardsRoute: AdminCardsRoute,
+  AdminSettingsRoute: AdminSettingsRoute,
+  AdminStrategiesRoute: AdminStrategiesRoute,
+  AdminTransactionsRoute: AdminTransactionsRoute,
+  AdminUsersRoute: AdminUsersRoute,
+  AdminYieldsRoute: AdminYieldsRoute,
   AdminIndexRoute: AdminIndexRoute,
 }
 
