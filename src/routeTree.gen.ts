@@ -10,33 +10,287 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as AdminRouteImport } from './routes/admin'
+import { Route as DashboardRouteImport } from './routes/dashboard'
+import { Route as AdminIndexRouteImport } from './routes/admin.index'
+import { Route as AdminAnalyticsRouteImport } from './routes/admin.analytics'
+import { Route as AdminAuditRouteImport } from './routes/admin.audit'
+import { Route as AdminCardsRouteImport } from './routes/admin.cards'
+import { Route as AdminSettingsRouteImport } from './routes/admin.settings'
+import { Route as AdminStrategiesRouteImport } from './routes/admin.strategies'
+import { Route as AdminTransactionsRouteImport } from './routes/admin.transactions'
+import { Route as AdminUsersRouteImport } from './routes/admin.users'
+import { Route as AdminYieldsRouteImport } from './routes/admin.yields'
+import { Route as DashboardIndexRouteImport } from './routes/dashboard.index'
+import { Route as DashboardCopilotRouteImport } from './routes/dashboard.copilot'
+import { Route as DashboardGoalsRouteImport } from './routes/dashboard.goals'
+import { Route as DashboardHelpRouteImport } from './routes/dashboard.help'
+import { Route as DashboardMarketsRouteImport } from './routes/dashboard.markets'
+import { Route as DashboardPortfolioRouteImport } from './routes/dashboard.portfolio'
+import { Route as DashboardSendReceiveRouteImport } from './routes/dashboard.send-receive'
+import { Route as DashboardSettingsRouteImport } from './routes/dashboard.settings'
+import { Route as DashboardSpendRouteImport } from './routes/dashboard.spend'
+import { Route as DashboardTransactionsRouteImport } from './routes/dashboard.transactions'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AdminRoute = AdminRouteImport.update({
+  id: '/admin',
+  path: '/admin',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DashboardRoute = DashboardRouteImport.update({
+  id: '/dashboard',
+  path: '/dashboard',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AdminIndexRoute = AdminIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => AdminRoute,
+} as any)
+const AdminAnalyticsRoute = AdminAnalyticsRouteImport.update({
+  id: '/analytics',
+  path: '/analytics',
+  getParentRoute: () => AdminRoute,
+} as any)
+const AdminAuditRoute = AdminAuditRouteImport.update({
+  id: '/audit',
+  path: '/audit',
+  getParentRoute: () => AdminRoute,
+} as any)
+const AdminCardsRoute = AdminCardsRouteImport.update({
+  id: '/cards',
+  path: '/cards',
+  getParentRoute: () => AdminRoute,
+} as any)
+const AdminSettingsRoute = AdminSettingsRouteImport.update({
+  id: '/settings',
+  path: '/settings',
+  getParentRoute: () => AdminRoute,
+} as any)
+const AdminStrategiesRoute = AdminStrategiesRouteImport.update({
+  id: '/strategies',
+  path: '/strategies',
+  getParentRoute: () => AdminRoute,
+} as any)
+const AdminTransactionsRoute = AdminTransactionsRouteImport.update({
+  id: '/transactions',
+  path: '/transactions',
+  getParentRoute: () => AdminRoute,
+} as any)
+const AdminUsersRoute = AdminUsersRouteImport.update({
+  id: '/users',
+  path: '/users',
+  getParentRoute: () => AdminRoute,
+} as any)
+const AdminYieldsRoute = AdminYieldsRouteImport.update({
+  id: '/yields',
+  path: '/yields',
+  getParentRoute: () => AdminRoute,
+} as any)
+const DashboardIndexRoute = DashboardIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => DashboardRoute,
+} as any)
+const DashboardCopilotRoute = DashboardCopilotRouteImport.update({
+  id: '/copilot',
+  path: '/copilot',
+  getParentRoute: () => DashboardRoute,
+} as any)
+const DashboardGoalsRoute = DashboardGoalsRouteImport.update({
+  id: '/goals',
+  path: '/goals',
+  getParentRoute: () => DashboardRoute,
+} as any)
+const DashboardHelpRoute = DashboardHelpRouteImport.update({
+  id: '/help',
+  path: '/help',
+  getParentRoute: () => DashboardRoute,
+} as any)
+const DashboardMarketsRoute = DashboardMarketsRouteImport.update({
+  id: '/markets',
+  path: '/markets',
+  getParentRoute: () => DashboardRoute,
+} as any)
+const DashboardPortfolioRoute = DashboardPortfolioRouteImport.update({
+  id: '/portfolio',
+  path: '/portfolio',
+  getParentRoute: () => DashboardRoute,
+} as any)
+const DashboardSendReceiveRoute = DashboardSendReceiveRouteImport.update({
+  id: '/send-receive',
+  path: '/send-receive',
+  getParentRoute: () => DashboardRoute,
+} as any)
+const DashboardSettingsRoute = DashboardSettingsRouteImport.update({
+  id: '/settings',
+  path: '/settings',
+  getParentRoute: () => DashboardRoute,
+} as any)
+const DashboardSpendRoute = DashboardSpendRouteImport.update({
+  id: '/spend',
+  path: '/spend',
+  getParentRoute: () => DashboardRoute,
+} as any)
+const DashboardTransactionsRoute = DashboardTransactionsRouteImport.update({
+  id: '/transactions',
+  path: '/transactions',
+  getParentRoute: () => DashboardRoute,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/admin': typeof AdminRouteWithChildren
+  '/dashboard': typeof DashboardRouteWithChildren
+  '/admin/analytics': typeof AdminAnalyticsRoute
+  '/admin/audit': typeof AdminAuditRoute
+  '/admin/cards': typeof AdminCardsRoute
+  '/admin/settings': typeof AdminSettingsRoute
+  '/admin/strategies': typeof AdminStrategiesRoute
+  '/admin/transactions': typeof AdminTransactionsRoute
+  '/admin/users': typeof AdminUsersRoute
+  '/admin/yields': typeof AdminYieldsRoute
+  '/dashboard/copilot': typeof DashboardCopilotRoute
+  '/dashboard/goals': typeof DashboardGoalsRoute
+  '/dashboard/help': typeof DashboardHelpRoute
+  '/dashboard/markets': typeof DashboardMarketsRoute
+  '/dashboard/portfolio': typeof DashboardPortfolioRoute
+  '/dashboard/send-receive': typeof DashboardSendReceiveRoute
+  '/dashboard/settings': typeof DashboardSettingsRoute
+  '/dashboard/spend': typeof DashboardSpendRoute
+  '/dashboard/transactions': typeof DashboardTransactionsRoute
+  '/admin/': typeof AdminIndexRoute
+  '/dashboard/': typeof DashboardIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/admin/analytics': typeof AdminAnalyticsRoute
+  '/admin/audit': typeof AdminAuditRoute
+  '/admin/cards': typeof AdminCardsRoute
+  '/admin/settings': typeof AdminSettingsRoute
+  '/admin/strategies': typeof AdminStrategiesRoute
+  '/admin/transactions': typeof AdminTransactionsRoute
+  '/admin/users': typeof AdminUsersRoute
+  '/admin/yields': typeof AdminYieldsRoute
+  '/dashboard/copilot': typeof DashboardCopilotRoute
+  '/dashboard/goals': typeof DashboardGoalsRoute
+  '/dashboard/help': typeof DashboardHelpRoute
+  '/dashboard/markets': typeof DashboardMarketsRoute
+  '/dashboard/portfolio': typeof DashboardPortfolioRoute
+  '/dashboard/send-receive': typeof DashboardSendReceiveRoute
+  '/dashboard/settings': typeof DashboardSettingsRoute
+  '/dashboard/spend': typeof DashboardSpendRoute
+  '/dashboard/transactions': typeof DashboardTransactionsRoute
+  '/admin': typeof AdminIndexRoute
+  '/dashboard': typeof DashboardIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/admin': typeof AdminRouteWithChildren
+  '/dashboard': typeof DashboardRouteWithChildren
+  '/admin/analytics': typeof AdminAnalyticsRoute
+  '/admin/audit': typeof AdminAuditRoute
+  '/admin/cards': typeof AdminCardsRoute
+  '/admin/settings': typeof AdminSettingsRoute
+  '/admin/strategies': typeof AdminStrategiesRoute
+  '/admin/transactions': typeof AdminTransactionsRoute
+  '/admin/users': typeof AdminUsersRoute
+  '/admin/yields': typeof AdminYieldsRoute
+  '/dashboard/copilot': typeof DashboardCopilotRoute
+  '/dashboard/goals': typeof DashboardGoalsRoute
+  '/dashboard/help': typeof DashboardHelpRoute
+  '/dashboard/markets': typeof DashboardMarketsRoute
+  '/dashboard/portfolio': typeof DashboardPortfolioRoute
+  '/dashboard/send-receive': typeof DashboardSendReceiveRoute
+  '/dashboard/settings': typeof DashboardSettingsRoute
+  '/dashboard/spend': typeof DashboardSpendRoute
+  '/dashboard/transactions': typeof DashboardTransactionsRoute
+  '/admin/': typeof AdminIndexRoute
+  '/dashboard/': typeof DashboardIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/admin'
+    | '/dashboard'
+    | '/admin/analytics'
+    | '/admin/audit'
+    | '/admin/cards'
+    | '/admin/settings'
+    | '/admin/strategies'
+    | '/admin/transactions'
+    | '/admin/users'
+    | '/admin/yields'
+    | '/dashboard/copilot'
+    | '/dashboard/goals'
+    | '/dashboard/help'
+    | '/dashboard/markets'
+    | '/dashboard/portfolio'
+    | '/dashboard/send-receive'
+    | '/dashboard/settings'
+    | '/dashboard/spend'
+    | '/dashboard/transactions'
+    | '/admin/'
+    | '/dashboard/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/admin/analytics'
+    | '/admin/audit'
+    | '/admin/cards'
+    | '/admin/settings'
+    | '/admin/strategies'
+    | '/admin/transactions'
+    | '/admin/users'
+    | '/admin/yields'
+    | '/dashboard/copilot'
+    | '/dashboard/goals'
+    | '/dashboard/help'
+    | '/dashboard/markets'
+    | '/dashboard/portfolio'
+    | '/dashboard/send-receive'
+    | '/dashboard/settings'
+    | '/dashboard/spend'
+    | '/dashboard/transactions'
+    | '/admin'
+    | '/dashboard'
+  id:
+    | '__root__'
+    | '/'
+    | '/admin'
+    | '/dashboard'
+    | '/admin/analytics'
+    | '/admin/audit'
+    | '/admin/cards'
+    | '/admin/settings'
+    | '/admin/strategies'
+    | '/admin/transactions'
+    | '/admin/users'
+    | '/admin/yields'
+    | '/dashboard/copilot'
+    | '/dashboard/goals'
+    | '/dashboard/help'
+    | '/dashboard/markets'
+    | '/dashboard/portfolio'
+    | '/dashboard/send-receive'
+    | '/dashboard/settings'
+    | '/dashboard/spend'
+    | '/dashboard/transactions'
+    | '/admin/'
+    | '/dashboard/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AdminRoute: typeof AdminRouteWithChildren
+  DashboardRoute: typeof DashboardRouteWithChildren
 }
 
 declare module '@tanstack/react-router' {
@@ -48,22 +302,217 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/admin': {
+      id: '/admin'
+      path: '/admin'
+      fullPath: '/admin'
+      preLoaderRoute: typeof AdminRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/dashboard': {
+      id: '/dashboard'
+      path: '/dashboard'
+      fullPath: '/dashboard'
+      preLoaderRoute: typeof DashboardRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin/': {
+      id: '/admin/'
+      path: '/'
+      fullPath: '/admin/'
+      preLoaderRoute: typeof AdminIndexRouteImport
+      parentRoute: typeof AdminRoute
+    }
+    '/admin/analytics': {
+      id: '/admin/analytics'
+      path: '/analytics'
+      fullPath: '/admin/analytics'
+      preLoaderRoute: typeof AdminAnalyticsRouteImport
+      parentRoute: typeof AdminRoute
+    }
+    '/admin/audit': {
+      id: '/admin/audit'
+      path: '/audit'
+      fullPath: '/admin/audit'
+      preLoaderRoute: typeof AdminAuditRouteImport
+      parentRoute: typeof AdminRoute
+    }
+    '/admin/cards': {
+      id: '/admin/cards'
+      path: '/cards'
+      fullPath: '/admin/cards'
+      preLoaderRoute: typeof AdminCardsRouteImport
+      parentRoute: typeof AdminRoute
+    }
+    '/admin/settings': {
+      id: '/admin/settings'
+      path: '/settings'
+      fullPath: '/admin/settings'
+      preLoaderRoute: typeof AdminSettingsRouteImport
+      parentRoute: typeof AdminRoute
+    }
+    '/admin/strategies': {
+      id: '/admin/strategies'
+      path: '/strategies'
+      fullPath: '/admin/strategies'
+      preLoaderRoute: typeof AdminStrategiesRouteImport
+      parentRoute: typeof AdminRoute
+    }
+    '/admin/transactions': {
+      id: '/admin/transactions'
+      path: '/transactions'
+      fullPath: '/admin/transactions'
+      preLoaderRoute: typeof AdminTransactionsRouteImport
+      parentRoute: typeof AdminRoute
+    }
+    '/admin/users': {
+      id: '/admin/users'
+      path: '/users'
+      fullPath: '/admin/users'
+      preLoaderRoute: typeof AdminUsersRouteImport
+      parentRoute: typeof AdminRoute
+    }
+    '/admin/yields': {
+      id: '/admin/yields'
+      path: '/yields'
+      fullPath: '/admin/yields'
+      preLoaderRoute: typeof AdminYieldsRouteImport
+      parentRoute: typeof AdminRoute
+    }
+    '/dashboard/': {
+      id: '/dashboard/'
+      path: '/'
+      fullPath: '/dashboard/'
+      preLoaderRoute: typeof DashboardIndexRouteImport
+      parentRoute: typeof DashboardRoute
+    }
+    '/dashboard/copilot': {
+      id: '/dashboard/copilot'
+      path: '/copilot'
+      fullPath: '/dashboard/copilot'
+      preLoaderRoute: typeof DashboardCopilotRouteImport
+      parentRoute: typeof DashboardRoute
+    }
+    '/dashboard/goals': {
+      id: '/dashboard/goals'
+      path: '/goals'
+      fullPath: '/dashboard/goals'
+      preLoaderRoute: typeof DashboardGoalsRouteImport
+      parentRoute: typeof DashboardRoute
+    }
+    '/dashboard/help': {
+      id: '/dashboard/help'
+      path: '/help'
+      fullPath: '/dashboard/help'
+      preLoaderRoute: typeof DashboardHelpRouteImport
+      parentRoute: typeof DashboardRoute
+    }
+    '/dashboard/markets': {
+      id: '/dashboard/markets'
+      path: '/markets'
+      fullPath: '/dashboard/markets'
+      preLoaderRoute: typeof DashboardMarketsRouteImport
+      parentRoute: typeof DashboardRoute
+    }
+    '/dashboard/portfolio': {
+      id: '/dashboard/portfolio'
+      path: '/portfolio'
+      fullPath: '/dashboard/portfolio'
+      preLoaderRoute: typeof DashboardPortfolioRouteImport
+      parentRoute: typeof DashboardRoute
+    }
+    '/dashboard/send-receive': {
+      id: '/dashboard/send-receive'
+      path: '/send-receive'
+      fullPath: '/dashboard/send-receive'
+      preLoaderRoute: typeof DashboardSendReceiveRouteImport
+      parentRoute: typeof DashboardRoute
+    }
+    '/dashboard/settings': {
+      id: '/dashboard/settings'
+      path: '/settings'
+      fullPath: '/dashboard/settings'
+      preLoaderRoute: typeof DashboardSettingsRouteImport
+      parentRoute: typeof DashboardRoute
+    }
+    '/dashboard/spend': {
+      id: '/dashboard/spend'
+      path: '/spend'
+      fullPath: '/dashboard/spend'
+      preLoaderRoute: typeof DashboardSpendRouteImport
+      parentRoute: typeof DashboardRoute
+    }
+    '/dashboard/transactions': {
+      id: '/dashboard/transactions'
+      path: '/transactions'
+      fullPath: '/dashboard/transactions'
+      preLoaderRoute: typeof DashboardTransactionsRouteImport
+      parentRoute: typeof DashboardRoute
+    }
   }
 }
 
+interface AdminRouteChildren {
+  AdminAnalyticsRoute: typeof AdminAnalyticsRoute
+  AdminAuditRoute: typeof AdminAuditRoute
+  AdminCardsRoute: typeof AdminCardsRoute
+  AdminSettingsRoute: typeof AdminSettingsRoute
+  AdminStrategiesRoute: typeof AdminStrategiesRoute
+  AdminTransactionsRoute: typeof AdminTransactionsRoute
+  AdminUsersRoute: typeof AdminUsersRoute
+  AdminYieldsRoute: typeof AdminYieldsRoute
+  AdminIndexRoute: typeof AdminIndexRoute
+}
+
+const AdminRouteChildren: AdminRouteChildren = {
+  AdminAnalyticsRoute: AdminAnalyticsRoute,
+  AdminAuditRoute: AdminAuditRoute,
+  AdminCardsRoute: AdminCardsRoute,
+  AdminSettingsRoute: AdminSettingsRoute,
+  AdminStrategiesRoute: AdminStrategiesRoute,
+  AdminTransactionsRoute: AdminTransactionsRoute,
+  AdminUsersRoute: AdminUsersRoute,
+  AdminYieldsRoute: AdminYieldsRoute,
+  AdminIndexRoute: AdminIndexRoute,
+}
+
+const AdminRouteWithChildren = AdminRoute._addFileChildren(AdminRouteChildren)
+
+interface DashboardRouteChildren {
+  DashboardCopilotRoute: typeof DashboardCopilotRoute
+  DashboardGoalsRoute: typeof DashboardGoalsRoute
+  DashboardHelpRoute: typeof DashboardHelpRoute
+  DashboardMarketsRoute: typeof DashboardMarketsRoute
+  DashboardPortfolioRoute: typeof DashboardPortfolioRoute
+  DashboardSendReceiveRoute: typeof DashboardSendReceiveRoute
+  DashboardSettingsRoute: typeof DashboardSettingsRoute
+  DashboardSpendRoute: typeof DashboardSpendRoute
+  DashboardTransactionsRoute: typeof DashboardTransactionsRoute
+  DashboardIndexRoute: typeof DashboardIndexRoute
+}
+
+const DashboardRouteChildren: DashboardRouteChildren = {
+  DashboardCopilotRoute: DashboardCopilotRoute,
+  DashboardGoalsRoute: DashboardGoalsRoute,
+  DashboardHelpRoute: DashboardHelpRoute,
+  DashboardMarketsRoute: DashboardMarketsRoute,
+  DashboardPortfolioRoute: DashboardPortfolioRoute,
+  DashboardSendReceiveRoute: DashboardSendReceiveRoute,
+  DashboardSettingsRoute: DashboardSettingsRoute,
+  DashboardSpendRoute: DashboardSpendRoute,
+  DashboardTransactionsRoute: DashboardTransactionsRoute,
+  DashboardIndexRoute: DashboardIndexRoute,
+}
+
+const DashboardRouteWithChildren = DashboardRoute._addFileChildren(
+  DashboardRouteChildren,
+)
+
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AdminRoute: AdminRouteWithChildren,
+  DashboardRoute: DashboardRouteWithChildren,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
-
-import type { getRouter } from './router.tsx'
-import type { startInstance } from './start.ts'
-declare module '@tanstack/react-start' {
-  interface Register {
-    ssr: true
-    router: Awaited<ReturnType<typeof getRouter>>
-    config: Awaited<ReturnType<typeof startInstance.getOptions>>
-  }
-}
