@@ -14,6 +14,7 @@ import { Route as AdminRouteImport } from './routes/admin'
 import { Route as DashboardRouteImport } from './routes/dashboard'
 import { Route as DashboardIndexRouteImport } from './routes/dashboard.index'
 import { Route as DashboardCopilotRouteImport } from './routes/dashboard.copilot'
+import { Route as DashboardPortfolioRouteImport } from './routes/dashboard.portfolio'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -40,18 +41,25 @@ const DashboardCopilotRoute = DashboardCopilotRouteImport.update({
   path: '/copilot',
   getParentRoute: () => DashboardRoute,
 } as any)
+const DashboardPortfolioRoute = DashboardPortfolioRouteImport.update({
+  id: '/portfolio',
+  path: '/portfolio',
+  getParentRoute: () => DashboardRoute,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/admin': typeof AdminRoute
   '/dashboard': typeof DashboardRouteWithChildren
   '/dashboard/copilot': typeof DashboardCopilotRoute
+  '/dashboard/portfolio': typeof DashboardPortfolioRoute
   '/dashboard/': typeof DashboardIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/admin': typeof AdminRoute
   '/dashboard/copilot': typeof DashboardCopilotRoute
+  '/dashboard/portfolio': typeof DashboardPortfolioRoute
   '/dashboard': typeof DashboardIndexRoute
 }
 export interface FileRoutesById {
@@ -60,20 +68,32 @@ export interface FileRoutesById {
   '/admin': typeof AdminRoute
   '/dashboard': typeof DashboardRouteWithChildren
   '/dashboard/copilot': typeof DashboardCopilotRoute
+  '/dashboard/portfolio': typeof DashboardPortfolioRoute
   '/dashboard/': typeof DashboardIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
-    '/' | '/admin' | '/dashboard' | '/dashboard/copilot' | '/dashboard/'
+    | '/'
+    | '/admin'
+    | '/dashboard'
+    | '/dashboard/copilot'
+    | '/dashboard/portfolio'
+    | '/dashboard/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/admin' | '/dashboard/copilot' | '/dashboard'
+  to:
+    | '/'
+    | '/admin'
+    | '/dashboard/copilot'
+    | '/dashboard/portfolio'
+    | '/dashboard'
   id:
     | '__root__'
     | '/'
     | '/admin'
     | '/dashboard'
     | '/dashboard/copilot'
+    | '/dashboard/portfolio'
     | '/dashboard/'
   fileRoutesById: FileRoutesById
 }
@@ -120,16 +140,25 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof DashboardCopilotRouteImport
       parentRoute: typeof DashboardRoute
     }
+    '/dashboard/portfolio': {
+      id: '/dashboard/portfolio'
+      path: '/portfolio'
+      fullPath: '/dashboard/portfolio'
+      preLoaderRoute: typeof DashboardPortfolioRouteImport
+      parentRoute: typeof DashboardRoute
+    }
   }
 }
 
 interface DashboardRouteChildren {
   DashboardCopilotRoute: typeof DashboardCopilotRoute
+  DashboardPortfolioRoute: typeof DashboardPortfolioRoute
   DashboardIndexRoute: typeof DashboardIndexRoute
 }
 
 const DashboardRouteChildren: DashboardRouteChildren = {
   DashboardCopilotRoute: DashboardCopilotRoute,
+  DashboardPortfolioRoute: DashboardPortfolioRoute,
   DashboardIndexRoute: DashboardIndexRoute,
 }
 
