@@ -18,6 +18,7 @@ import { Route as DashboardGoalsRouteImport } from './routes/dashboard.goals'
 import { Route as DashboardMarketsRouteImport } from './routes/dashboard.markets'
 import { Route as DashboardPortfolioRouteImport } from './routes/dashboard.portfolio'
 import { Route as DashboardSendReceiveRouteImport } from './routes/dashboard.send-receive'
+import { Route as DashboardSettingsRouteImport } from './routes/dashboard.settings'
 import { Route as DashboardSpendRouteImport } from './routes/dashboard.spend'
 import { Route as DashboardTransactionsRouteImport } from './routes/dashboard.transactions'
 
@@ -66,6 +67,11 @@ const DashboardSendReceiveRoute = DashboardSendReceiveRouteImport.update({
   path: '/send-receive',
   getParentRoute: () => DashboardRoute,
 } as any)
+const DashboardSettingsRoute = DashboardSettingsRouteImport.update({
+  id: '/settings',
+  path: '/settings',
+  getParentRoute: () => DashboardRoute,
+} as any)
 const DashboardSpendRoute = DashboardSpendRouteImport.update({
   id: '/spend',
   path: '/spend',
@@ -86,6 +92,7 @@ export interface FileRoutesByFullPath {
   '/dashboard/markets': typeof DashboardMarketsRoute
   '/dashboard/portfolio': typeof DashboardPortfolioRoute
   '/dashboard/send-receive': typeof DashboardSendReceiveRoute
+  '/dashboard/settings': typeof DashboardSettingsRoute
   '/dashboard/spend': typeof DashboardSpendRoute
   '/dashboard/transactions': typeof DashboardTransactionsRoute
   '/dashboard/': typeof DashboardIndexRoute
@@ -98,6 +105,7 @@ export interface FileRoutesByTo {
   '/dashboard/markets': typeof DashboardMarketsRoute
   '/dashboard/portfolio': typeof DashboardPortfolioRoute
   '/dashboard/send-receive': typeof DashboardSendReceiveRoute
+  '/dashboard/settings': typeof DashboardSettingsRoute
   '/dashboard/spend': typeof DashboardSpendRoute
   '/dashboard/transactions': typeof DashboardTransactionsRoute
   '/dashboard': typeof DashboardIndexRoute
@@ -112,6 +120,7 @@ export interface FileRoutesById {
   '/dashboard/markets': typeof DashboardMarketsRoute
   '/dashboard/portfolio': typeof DashboardPortfolioRoute
   '/dashboard/send-receive': typeof DashboardSendReceiveRoute
+  '/dashboard/settings': typeof DashboardSettingsRoute
   '/dashboard/spend': typeof DashboardSpendRoute
   '/dashboard/transactions': typeof DashboardTransactionsRoute
   '/dashboard/': typeof DashboardIndexRoute
@@ -127,6 +136,7 @@ export interface FileRouteTypes {
     | '/dashboard/markets'
     | '/dashboard/portfolio'
     | '/dashboard/send-receive'
+    | '/dashboard/settings'
     | '/dashboard/spend'
     | '/dashboard/transactions'
     | '/dashboard/'
@@ -139,6 +149,7 @@ export interface FileRouteTypes {
     | '/dashboard/markets'
     | '/dashboard/portfolio'
     | '/dashboard/send-receive'
+    | '/dashboard/settings'
     | '/dashboard/spend'
     | '/dashboard/transactions'
     | '/dashboard'
@@ -152,6 +163,7 @@ export interface FileRouteTypes {
     | '/dashboard/markets'
     | '/dashboard/portfolio'
     | '/dashboard/send-receive'
+    | '/dashboard/settings'
     | '/dashboard/spend'
     | '/dashboard/transactions'
     | '/dashboard/'
@@ -228,6 +240,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof DashboardSendReceiveRouteImport
       parentRoute: typeof DashboardRoute
     }
+    '/dashboard/settings': {
+      id: '/dashboard/settings'
+      path: '/settings'
+      fullPath: '/dashboard/settings'
+      preLoaderRoute: typeof DashboardSettingsRouteImport
+      parentRoute: typeof DashboardRoute
+    }
     '/dashboard/spend': {
       id: '/dashboard/spend'
       path: '/spend'
@@ -251,6 +270,7 @@ interface DashboardRouteChildren {
   DashboardMarketsRoute: typeof DashboardMarketsRoute
   DashboardPortfolioRoute: typeof DashboardPortfolioRoute
   DashboardSendReceiveRoute: typeof DashboardSendReceiveRoute
+  DashboardSettingsRoute: typeof DashboardSettingsRoute
   DashboardSpendRoute: typeof DashboardSpendRoute
   DashboardTransactionsRoute: typeof DashboardTransactionsRoute
   DashboardIndexRoute: typeof DashboardIndexRoute
@@ -262,6 +282,7 @@ const DashboardRouteChildren: DashboardRouteChildren = {
   DashboardMarketsRoute: DashboardMarketsRoute,
   DashboardPortfolioRoute: DashboardPortfolioRoute,
   DashboardSendReceiveRoute: DashboardSendReceiveRoute,
+  DashboardSettingsRoute: DashboardSettingsRoute,
   DashboardSpendRoute: DashboardSpendRoute,
   DashboardTransactionsRoute: DashboardTransactionsRoute,
   DashboardIndexRoute: DashboardIndexRoute,
