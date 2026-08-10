@@ -7,7 +7,6 @@ import {
   Landmark,
   ScrollText,
   Settings,
-  ShieldCheck,
   Users,
   Wallet,
 } from "lucide-react";
@@ -32,5 +31,3 @@ export const Route = createFileRoute("/admin")({
 function AdminLayout() {
   return <AppShell items={items} badge="Admin console" who="Ops Admin" initials="OA" />;
 }
-
-export { ShieldCheck };
