@@ -14,6 +14,7 @@ import { Route as AdminRouteImport } from './routes/admin'
 import { Route as DashboardRouteImport } from './routes/dashboard'
 import { Route as DashboardIndexRouteImport } from './routes/dashboard.index'
 import { Route as DashboardCopilotRouteImport } from './routes/dashboard.copilot'
+import { Route as DashboardGoalsRouteImport } from './routes/dashboard.goals'
 import { Route as DashboardMarketsRouteImport } from './routes/dashboard.markets'
 import { Route as DashboardPortfolioRouteImport } from './routes/dashboard.portfolio'
 import { Route as DashboardSendReceiveRouteImport } from './routes/dashboard.send-receive'
@@ -43,6 +44,11 @@ const DashboardIndexRoute = DashboardIndexRouteImport.update({
 const DashboardCopilotRoute = DashboardCopilotRouteImport.update({
   id: '/copilot',
   path: '/copilot',
+  getParentRoute: () => DashboardRoute,
+} as any)
+const DashboardGoalsRoute = DashboardGoalsRouteImport.update({
+  id: '/goals',
+  path: '/goals',
   getParentRoute: () => DashboardRoute,
 } as any)
 const DashboardMarketsRoute = DashboardMarketsRouteImport.update({
@@ -76,6 +82,7 @@ export interface FileRoutesByFullPath {
   '/admin': typeof AdminRoute
   '/dashboard': typeof DashboardRouteWithChildren
   '/dashboard/copilot': typeof DashboardCopilotRoute
+  '/dashboard/goals': typeof DashboardGoalsRoute
   '/dashboard/markets': typeof DashboardMarketsRoute
   '/dashboard/portfolio': typeof DashboardPortfolioRoute
   '/dashboard/send-receive': typeof DashboardSendReceiveRoute
@@ -87,6 +94,7 @@ export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/admin': typeof AdminRoute
   '/dashboard/copilot': typeof DashboardCopilotRoute
+  '/dashboard/goals': typeof DashboardGoalsRoute
   '/dashboard/markets': typeof DashboardMarketsRoute
   '/dashboard/portfolio': typeof DashboardPortfolioRoute
   '/dashboard/send-receive': typeof DashboardSendReceiveRoute
@@ -100,6 +108,7 @@ export interface FileRoutesById {
   '/admin': typeof AdminRoute
   '/dashboard': typeof DashboardRouteWithChildren
   '/dashboard/copilot': typeof DashboardCopilotRoute
+  '/dashboard/goals': typeof DashboardGoalsRoute
   '/dashboard/markets': typeof DashboardMarketsRoute
   '/dashboard/portfolio': typeof DashboardPortfolioRoute
   '/dashboard/send-receive': typeof DashboardSendReceiveRoute
@@ -114,6 +123,7 @@ export interface FileRouteTypes {
     | '/admin'
     | '/dashboard'
     | '/dashboard/copilot'
+    | '/dashboard/goals'
     | '/dashboard/markets'
     | '/dashboard/portfolio'
     | '/dashboard/send-receive'
@@ -125,6 +135,7 @@ export interface FileRouteTypes {
     | '/'
     | '/admin'
     | '/dashboard/copilot'
+    | '/dashboard/goals'
     | '/dashboard/markets'
     | '/dashboard/portfolio'
     | '/dashboard/send-receive'
@@ -137,6 +148,7 @@ export interface FileRouteTypes {
     | '/admin'
     | '/dashboard'
     | '/dashboard/copilot'
+    | '/dashboard/goals'
     | '/dashboard/markets'
     | '/dashboard/portfolio'
     | '/dashboard/send-receive'
@@ -188,6 +200,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof DashboardCopilotRouteImport
       parentRoute: typeof DashboardRoute
     }
+    '/dashboard/goals': {
+      id: '/dashboard/goals'
+      path: '/goals'
+      fullPath: '/dashboard/goals'
+      preLoaderRoute: typeof DashboardGoalsRouteImport
+      parentRoute: typeof DashboardRoute
+    }
     '/dashboard/markets': {
       id: '/dashboard/markets'
       path: '/markets'
@@ -228,6 +247,7 @@ declare module '@tanstack/react-router' {
 
 interface DashboardRouteChildren {
   DashboardCopilotRoute: typeof DashboardCopilotRoute
+  DashboardGoalsRoute: typeof DashboardGoalsRoute
   DashboardMarketsRoute: typeof DashboardMarketsRoute
   DashboardPortfolioRoute: typeof DashboardPortfolioRoute
   DashboardSendReceiveRoute: typeof DashboardSendReceiveRoute
@@ -238,6 +258,7 @@ interface DashboardRouteChildren {
 
 const DashboardRouteChildren: DashboardRouteChildren = {
   DashboardCopilotRoute: DashboardCopilotRoute,
+  DashboardGoalsRoute: DashboardGoalsRoute,
   DashboardMarketsRoute: DashboardMarketsRoute,
   DashboardPortfolioRoute: DashboardPortfolioRoute,
   DashboardSendReceiveRoute: DashboardSendReceiveRoute,
