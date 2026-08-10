@@ -16,6 +16,7 @@ import { Route as DashboardIndexRouteImport } from './routes/dashboard.index'
 import { Route as DashboardCopilotRouteImport } from './routes/dashboard.copilot'
 import { Route as DashboardMarketsRouteImport } from './routes/dashboard.markets'
 import { Route as DashboardPortfolioRouteImport } from './routes/dashboard.portfolio'
+import { Route as DashboardSpendRouteImport } from './routes/dashboard.spend'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -52,6 +53,11 @@ const DashboardPortfolioRoute = DashboardPortfolioRouteImport.update({
   path: '/portfolio',
   getParentRoute: () => DashboardRoute,
 } as any)
+const DashboardSpendRoute = DashboardSpendRouteImport.update({
+  id: '/spend',
+  path: '/spend',
+  getParentRoute: () => DashboardRoute,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -60,6 +66,7 @@ export interface FileRoutesByFullPath {
   '/dashboard/copilot': typeof DashboardCopilotRoute
   '/dashboard/markets': typeof DashboardMarketsRoute
   '/dashboard/portfolio': typeof DashboardPortfolioRoute
+  '/dashboard/spend': typeof DashboardSpendRoute
   '/dashboard/': typeof DashboardIndexRoute
 }
 export interface FileRoutesByTo {
@@ -68,6 +75,7 @@ export interface FileRoutesByTo {
   '/dashboard/copilot': typeof DashboardCopilotRoute
   '/dashboard/markets': typeof DashboardMarketsRoute
   '/dashboard/portfolio': typeof DashboardPortfolioRoute
+  '/dashboard/spend': typeof DashboardSpendRoute
   '/dashboard': typeof DashboardIndexRoute
 }
 export interface FileRoutesById {
@@ -78,6 +86,7 @@ export interface FileRoutesById {
   '/dashboard/copilot': typeof DashboardCopilotRoute
   '/dashboard/markets': typeof DashboardMarketsRoute
   '/dashboard/portfolio': typeof DashboardPortfolioRoute
+  '/dashboard/spend': typeof DashboardSpendRoute
   '/dashboard/': typeof DashboardIndexRoute
 }
 export interface FileRouteTypes {
@@ -89,6 +98,7 @@ export interface FileRouteTypes {
     | '/dashboard/copilot'
     | '/dashboard/markets'
     | '/dashboard/portfolio'
+    | '/dashboard/spend'
     | '/dashboard/'
   fileRoutesByTo: FileRoutesByTo
   to:
@@ -97,6 +107,7 @@ export interface FileRouteTypes {
     | '/dashboard/copilot'
     | '/dashboard/markets'
     | '/dashboard/portfolio'
+    | '/dashboard/spend'
     | '/dashboard'
   id:
     | '__root__'
@@ -106,6 +117,7 @@ export interface FileRouteTypes {
     | '/dashboard/copilot'
     | '/dashboard/markets'
     | '/dashboard/portfolio'
+    | '/dashboard/spend'
     | '/dashboard/'
   fileRoutesById: FileRoutesById
 }
@@ -166,6 +178,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof DashboardPortfolioRouteImport
       parentRoute: typeof DashboardRoute
     }
+    '/dashboard/spend': {
+      id: '/dashboard/spend'
+      path: '/spend'
+      fullPath: '/dashboard/spend'
+      preLoaderRoute: typeof DashboardSpendRouteImport
+      parentRoute: typeof DashboardRoute
+    }
   }
 }
 
@@ -173,6 +192,7 @@ interface DashboardRouteChildren {
   DashboardCopilotRoute: typeof DashboardCopilotRoute
   DashboardMarketsRoute: typeof DashboardMarketsRoute
   DashboardPortfolioRoute: typeof DashboardPortfolioRoute
+  DashboardSpendRoute: typeof DashboardSpendRoute
   DashboardIndexRoute: typeof DashboardIndexRoute
 }
 
@@ -180,6 +200,7 @@ const DashboardRouteChildren: DashboardRouteChildren = {
   DashboardCopilotRoute: DashboardCopilotRoute,
   DashboardMarketsRoute: DashboardMarketsRoute,
   DashboardPortfolioRoute: DashboardPortfolioRoute,
+  DashboardSpendRoute: DashboardSpendRoute,
   DashboardIndexRoute: DashboardIndexRoute,
 }
 
