@@ -18,6 +18,7 @@ import { Route as DashboardMarketsRouteImport } from './routes/dashboard.markets
 import { Route as DashboardPortfolioRouteImport } from './routes/dashboard.portfolio'
 import { Route as DashboardSendReceiveRouteImport } from './routes/dashboard.send-receive'
 import { Route as DashboardSpendRouteImport } from './routes/dashboard.spend'
+import { Route as DashboardTransactionsRouteImport } from './routes/dashboard.transactions'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -64,6 +65,11 @@ const DashboardSpendRoute = DashboardSpendRouteImport.update({
   path: '/spend',
   getParentRoute: () => DashboardRoute,
 } as any)
+const DashboardTransactionsRoute = DashboardTransactionsRouteImport.update({
+  id: '/transactions',
+  path: '/transactions',
+  getParentRoute: () => DashboardRoute,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -74,6 +80,7 @@ export interface FileRoutesByFullPath {
   '/dashboard/portfolio': typeof DashboardPortfolioRoute
   '/dashboard/send-receive': typeof DashboardSendReceiveRoute
   '/dashboard/spend': typeof DashboardSpendRoute
+  '/dashboard/transactions': typeof DashboardTransactionsRoute
   '/dashboard/': typeof DashboardIndexRoute
 }
 export interface FileRoutesByTo {
@@ -84,6 +91,7 @@ export interface FileRoutesByTo {
   '/dashboard/portfolio': typeof DashboardPortfolioRoute
   '/dashboard/send-receive': typeof DashboardSendReceiveRoute
   '/dashboard/spend': typeof DashboardSpendRoute
+  '/dashboard/transactions': typeof DashboardTransactionsRoute
   '/dashboard': typeof DashboardIndexRoute
 }
 export interface FileRoutesById {
@@ -96,6 +104,7 @@ export interface FileRoutesById {
   '/dashboard/portfolio': typeof DashboardPortfolioRoute
   '/dashboard/send-receive': typeof DashboardSendReceiveRoute
   '/dashboard/spend': typeof DashboardSpendRoute
+  '/dashboard/transactions': typeof DashboardTransactionsRoute
   '/dashboard/': typeof DashboardIndexRoute
 }
 export interface FileRouteTypes {
@@ -109,6 +118,7 @@ export interface FileRouteTypes {
     | '/dashboard/portfolio'
     | '/dashboard/send-receive'
     | '/dashboard/spend'
+    | '/dashboard/transactions'
     | '/dashboard/'
   fileRoutesByTo: FileRoutesByTo
   to:
@@ -119,6 +129,7 @@ export interface FileRouteTypes {
     | '/dashboard/portfolio'
     | '/dashboard/send-receive'
     | '/dashboard/spend'
+    | '/dashboard/transactions'
     | '/dashboard'
   id:
     | '__root__'
@@ -130,6 +141,7 @@ export interface FileRouteTypes {
     | '/dashboard/portfolio'
     | '/dashboard/send-receive'
     | '/dashboard/spend'
+    | '/dashboard/transactions'
     | '/dashboard/'
   fileRoutesById: FileRoutesById
 }
@@ -204,6 +216,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof DashboardSpendRouteImport
       parentRoute: typeof DashboardRoute
     }
+    '/dashboard/transactions': {
+      id: '/dashboard/transactions'
+      path: '/transactions'
+      fullPath: '/dashboard/transactions'
+      preLoaderRoute: typeof DashboardTransactionsRouteImport
+      parentRoute: typeof DashboardRoute
+    }
   }
 }
 
@@ -213,6 +232,7 @@ interface DashboardRouteChildren {
   DashboardPortfolioRoute: typeof DashboardPortfolioRoute
   DashboardSendReceiveRoute: typeof DashboardSendReceiveRoute
   DashboardSpendRoute: typeof DashboardSpendRoute
+  DashboardTransactionsRoute: typeof DashboardTransactionsRoute
   DashboardIndexRoute: typeof DashboardIndexRoute
 }
 
@@ -222,6 +242,7 @@ const DashboardRouteChildren: DashboardRouteChildren = {
   DashboardPortfolioRoute: DashboardPortfolioRoute,
   DashboardSendReceiveRoute: DashboardSendReceiveRoute,
   DashboardSpendRoute: DashboardSpendRoute,
+  DashboardTransactionsRoute: DashboardTransactionsRoute,
   DashboardIndexRoute: DashboardIndexRoute,
 }
 
