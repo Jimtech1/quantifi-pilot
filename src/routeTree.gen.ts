@@ -16,6 +16,7 @@ import { Route as DashboardIndexRouteImport } from './routes/dashboard.index'
 import { Route as DashboardCopilotRouteImport } from './routes/dashboard.copilot'
 import { Route as DashboardMarketsRouteImport } from './routes/dashboard.markets'
 import { Route as DashboardPortfolioRouteImport } from './routes/dashboard.portfolio'
+import { Route as DashboardSendReceiveRouteImport } from './routes/dashboard.send-receive'
 import { Route as DashboardSpendRouteImport } from './routes/dashboard.spend'
 
 const IndexRoute = IndexRouteImport.update({
@@ -53,6 +54,11 @@ const DashboardPortfolioRoute = DashboardPortfolioRouteImport.update({
   path: '/portfolio',
   getParentRoute: () => DashboardRoute,
 } as any)
+const DashboardSendReceiveRoute = DashboardSendReceiveRouteImport.update({
+  id: '/send-receive',
+  path: '/send-receive',
+  getParentRoute: () => DashboardRoute,
+} as any)
 const DashboardSpendRoute = DashboardSpendRouteImport.update({
   id: '/spend',
   path: '/spend',
@@ -66,6 +72,7 @@ export interface FileRoutesByFullPath {
   '/dashboard/copilot': typeof DashboardCopilotRoute
   '/dashboard/markets': typeof DashboardMarketsRoute
   '/dashboard/portfolio': typeof DashboardPortfolioRoute
+  '/dashboard/send-receive': typeof DashboardSendReceiveRoute
   '/dashboard/spend': typeof DashboardSpendRoute
   '/dashboard/': typeof DashboardIndexRoute
 }
@@ -75,6 +82,7 @@ export interface FileRoutesByTo {
   '/dashboard/copilot': typeof DashboardCopilotRoute
   '/dashboard/markets': typeof DashboardMarketsRoute
   '/dashboard/portfolio': typeof DashboardPortfolioRoute
+  '/dashboard/send-receive': typeof DashboardSendReceiveRoute
   '/dashboard/spend': typeof DashboardSpendRoute
   '/dashboard': typeof DashboardIndexRoute
 }
@@ -86,6 +94,7 @@ export interface FileRoutesById {
   '/dashboard/copilot': typeof DashboardCopilotRoute
   '/dashboard/markets': typeof DashboardMarketsRoute
   '/dashboard/portfolio': typeof DashboardPortfolioRoute
+  '/dashboard/send-receive': typeof DashboardSendReceiveRoute
   '/dashboard/spend': typeof DashboardSpendRoute
   '/dashboard/': typeof DashboardIndexRoute
 }
@@ -98,6 +107,7 @@ export interface FileRouteTypes {
     | '/dashboard/copilot'
     | '/dashboard/markets'
     | '/dashboard/portfolio'
+    | '/dashboard/send-receive'
     | '/dashboard/spend'
     | '/dashboard/'
   fileRoutesByTo: FileRoutesByTo
@@ -107,6 +117,7 @@ export interface FileRouteTypes {
     | '/dashboard/copilot'
     | '/dashboard/markets'
     | '/dashboard/portfolio'
+    | '/dashboard/send-receive'
     | '/dashboard/spend'
     | '/dashboard'
   id:
@@ -117,6 +128,7 @@ export interface FileRouteTypes {
     | '/dashboard/copilot'
     | '/dashboard/markets'
     | '/dashboard/portfolio'
+    | '/dashboard/send-receive'
     | '/dashboard/spend'
     | '/dashboard/'
   fileRoutesById: FileRoutesById
@@ -178,6 +190,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof DashboardPortfolioRouteImport
       parentRoute: typeof DashboardRoute
     }
+    '/dashboard/send-receive': {
+      id: '/dashboard/send-receive'
+      path: '/send-receive'
+      fullPath: '/dashboard/send-receive'
+      preLoaderRoute: typeof DashboardSendReceiveRouteImport
+      parentRoute: typeof DashboardRoute
+    }
     '/dashboard/spend': {
       id: '/dashboard/spend'
       path: '/spend'
@@ -192,6 +211,7 @@ interface DashboardRouteChildren {
   DashboardCopilotRoute: typeof DashboardCopilotRoute
   DashboardMarketsRoute: typeof DashboardMarketsRoute
   DashboardPortfolioRoute: typeof DashboardPortfolioRoute
+  DashboardSendReceiveRoute: typeof DashboardSendReceiveRoute
   DashboardSpendRoute: typeof DashboardSpendRoute
   DashboardIndexRoute: typeof DashboardIndexRoute
 }
@@ -200,6 +220,7 @@ const DashboardRouteChildren: DashboardRouteChildren = {
   DashboardCopilotRoute: DashboardCopilotRoute,
   DashboardMarketsRoute: DashboardMarketsRoute,
   DashboardPortfolioRoute: DashboardPortfolioRoute,
+  DashboardSendReceiveRoute: DashboardSendReceiveRoute,
   DashboardSpendRoute: DashboardSpendRoute,
   DashboardIndexRoute: DashboardIndexRoute,
 }
