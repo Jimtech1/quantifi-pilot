@@ -14,6 +14,7 @@ import { Route as AdminRouteImport } from './routes/admin'
 import { Route as DashboardRouteImport } from './routes/dashboard'
 import { Route as DashboardIndexRouteImport } from './routes/dashboard.index'
 import { Route as DashboardCopilotRouteImport } from './routes/dashboard.copilot'
+import { Route as DashboardMarketsRouteImport } from './routes/dashboard.markets'
 import { Route as DashboardPortfolioRouteImport } from './routes/dashboard.portfolio'
 
 const IndexRoute = IndexRouteImport.update({
@@ -41,6 +42,11 @@ const DashboardCopilotRoute = DashboardCopilotRouteImport.update({
   path: '/copilot',
   getParentRoute: () => DashboardRoute,
 } as any)
+const DashboardMarketsRoute = DashboardMarketsRouteImport.update({
+  id: '/markets',
+  path: '/markets',
+  getParentRoute: () => DashboardRoute,
+} as any)
 const DashboardPortfolioRoute = DashboardPortfolioRouteImport.update({
   id: '/portfolio',
   path: '/portfolio',
@@ -52,6 +58,7 @@ export interface FileRoutesByFullPath {
   '/admin': typeof AdminRoute
   '/dashboard': typeof DashboardRouteWithChildren
   '/dashboard/copilot': typeof DashboardCopilotRoute
+  '/dashboard/markets': typeof DashboardMarketsRoute
   '/dashboard/portfolio': typeof DashboardPortfolioRoute
   '/dashboard/': typeof DashboardIndexRoute
 }
@@ -59,6 +66,7 @@ export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/admin': typeof AdminRoute
   '/dashboard/copilot': typeof DashboardCopilotRoute
+  '/dashboard/markets': typeof DashboardMarketsRoute
   '/dashboard/portfolio': typeof DashboardPortfolioRoute
   '/dashboard': typeof DashboardIndexRoute
 }
@@ -68,6 +76,7 @@ export interface FileRoutesById {
   '/admin': typeof AdminRoute
   '/dashboard': typeof DashboardRouteWithChildren
   '/dashboard/copilot': typeof DashboardCopilotRoute
+  '/dashboard/markets': typeof DashboardMarketsRoute
   '/dashboard/portfolio': typeof DashboardPortfolioRoute
   '/dashboard/': typeof DashboardIndexRoute
 }
@@ -78,6 +87,7 @@ export interface FileRouteTypes {
     | '/admin'
     | '/dashboard'
     | '/dashboard/copilot'
+    | '/dashboard/markets'
     | '/dashboard/portfolio'
     | '/dashboard/'
   fileRoutesByTo: FileRoutesByTo
@@ -85,6 +95,7 @@ export interface FileRouteTypes {
     | '/'
     | '/admin'
     | '/dashboard/copilot'
+    | '/dashboard/markets'
     | '/dashboard/portfolio'
     | '/dashboard'
   id:
@@ -93,6 +104,7 @@ export interface FileRouteTypes {
     | '/admin'
     | '/dashboard'
     | '/dashboard/copilot'
+    | '/dashboard/markets'
     | '/dashboard/portfolio'
     | '/dashboard/'
   fileRoutesById: FileRoutesById
@@ -140,6 +152,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof DashboardCopilotRouteImport
       parentRoute: typeof DashboardRoute
     }
+    '/dashboard/markets': {
+      id: '/dashboard/markets'
+      path: '/markets'
+      fullPath: '/dashboard/markets'
+      preLoaderRoute: typeof DashboardMarketsRouteImport
+      parentRoute: typeof DashboardRoute
+    }
     '/dashboard/portfolio': {
       id: '/dashboard/portfolio'
       path: '/portfolio'
@@ -152,12 +171,14 @@ declare module '@tanstack/react-router' {
 
 interface DashboardRouteChildren {
   DashboardCopilotRoute: typeof DashboardCopilotRoute
+  DashboardMarketsRoute: typeof DashboardMarketsRoute
   DashboardPortfolioRoute: typeof DashboardPortfolioRoute
   DashboardIndexRoute: typeof DashboardIndexRoute
 }
 
 const DashboardRouteChildren: DashboardRouteChildren = {
   DashboardCopilotRoute: DashboardCopilotRoute,
+  DashboardMarketsRoute: DashboardMarketsRoute,
   DashboardPortfolioRoute: DashboardPortfolioRoute,
   DashboardIndexRoute: DashboardIndexRoute,
 }
