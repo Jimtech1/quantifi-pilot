@@ -22,7 +22,7 @@ export const Route = createFileRoute("/dashboard/help")({
   component: HelpPage,
 });
 
-const faqs = [
+const faqs: Array<[string, string]> = [
   ["How does the AI Copilot decide where to invest?", "It scores every available NexaFi strategy on yield, volatility and liquidity, then matches them to your stated risk tolerance and goals."],
   ["Can I withdraw anytime?", "Yes. Flexible strategies settle instantly; fixed-term positions display their unlock date before you commit."],
   ["How do I raise my limits?", "Complete identity verification in Settings → Security. Most upgrades are approved in under 10 minutes."],
