@@ -8,7 +8,7 @@ import { Input } from "@/components/ui/input";
 import { GlassCard, PageHeader } from "@/components/nexafi/app-shell";
 import { copilotSeed, copilotSuggestions, oneClickStrategies, strategies } from "@/lib/mock-data";
 
-export const Route = createFileRoute("/dashboard/copilot")({
+export const Route = createFileRoute("/_authenticated/dashboard/copilot")({
   head: () => ({
     meta: [
       { title: "AI Copilot — NexaFi" },

@@ -24,7 +24,7 @@ const items: NavItem[] = [
   { label: "Audit Log", to: "/admin/audit", icon: ScrollText },
 ];
 
-export const Route = createFileRoute("/admin")({
+export const Route = createFileRoute("/_authenticated/admin")({
   component: AdminLayout,
 });
 

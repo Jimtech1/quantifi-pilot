@@ -15,7 +15,7 @@ import { Switch } from "@/components/ui/switch";
 import { GlassCard, PageHeader } from "@/components/nexafi/app-shell";
 import { user } from "@/lib/mock-data";
 
-export const Route = createFileRoute("/dashboard/settings")({
+export const Route = createFileRoute("/_authenticated/dashboard/settings")({
   head: () => ({
     meta: [
       { title: "Settings — NexaFi" },

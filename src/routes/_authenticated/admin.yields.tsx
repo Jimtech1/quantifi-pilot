@@ -13,7 +13,7 @@ import {
 } from "@/components/ui/table";
 import { GlassCard, PageHeader, StatCard } from "@/components/nexafi/app-shell";
 
-export const Route = createFileRoute("/admin/yields")({
+export const Route = createFileRoute("/_authenticated/admin/yields")({
   head: () => ({
     meta: [
       { title: "Yield Opportunities — NexaFi Admin" },

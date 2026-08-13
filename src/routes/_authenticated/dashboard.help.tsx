@@ -10,7 +10,7 @@ import {
 import { Button } from "@/components/ui/button";
 import { GlassCard, PageHeader } from "@/components/nexafi/app-shell";
 
-export const Route = createFileRoute("/dashboard/help")({
+export const Route = createFileRoute("/_authenticated/dashboard/help")({
   head: () => ({
     meta: [
       { title: "Help & Support — NexaFi" },

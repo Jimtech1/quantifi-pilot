@@ -7,7 +7,7 @@ import { Input } from "@/components/ui/input";
 import { GlassCard, PageHeader } from "@/components/nexafi/app-shell";
 import { marketAssets, marketOpportunities } from "@/lib/mock-data";
 
-export const Route = createFileRoute("/dashboard/markets")({
+export const Route = createFileRoute("/_authenticated/dashboard/markets")({
   head: () => ({
     meta: [
       { title: "Markets — NexaFi" },
