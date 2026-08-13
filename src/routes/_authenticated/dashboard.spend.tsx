@@ -15,7 +15,7 @@ import {
 import { GlassCard, PageHeader } from "@/components/nexafi/app-shell";
 import { cardTransactions } from "@/lib/mock-data";
 
-export const Route = createFileRoute("/dashboard/spend")({
+export const Route = createFileRoute("/_authenticated/dashboard/spend")({
   head: () => ({
     meta: [
       { title: "Spend — NexaFi" },

@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button";
 import { GlassCard, PageHeader, StatCard } from "@/components/nexafi/app-shell";
 import { activity, allocation, portfolioStats, user } from "@/lib/mock-data";
 
-export const Route = createFileRoute("/dashboard/")({
+export const Route = createFileRoute("/_authenticated/dashboard/")({
   head: () => ({
     meta: [
       { title: "Dashboard — NexaFi" },

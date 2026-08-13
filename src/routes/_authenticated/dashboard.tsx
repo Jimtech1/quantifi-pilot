@@ -27,7 +27,7 @@ const items: NavItem[] = [
   { label: "Help & Support", to: "/dashboard/help", icon: HelpCircle },
 ];
 
-export const Route = createFileRoute("/dashboard")({
+export const Route = createFileRoute("/_authenticated/dashboard")({
   component: DashboardLayout,
 });
 

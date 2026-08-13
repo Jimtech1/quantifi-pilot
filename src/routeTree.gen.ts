@@ -10,209 +10,224 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
-import { Route as AdminRouteImport } from './routes/admin'
-import { Route as DashboardRouteImport } from './routes/dashboard'
-import { Route as AdminIndexRouteImport } from './routes/admin.index'
-import { Route as AdminAnalyticsRouteImport } from './routes/admin.analytics'
-import { Route as AdminAuditRouteImport } from './routes/admin.audit'
-import { Route as AdminCardsRouteImport } from './routes/admin.cards'
-import { Route as AdminSettingsRouteImport } from './routes/admin.settings'
-import { Route as AdminStrategiesRouteImport } from './routes/admin.strategies'
-import { Route as AdminTransactionsRouteImport } from './routes/admin.transactions'
-import { Route as AdminUsersRouteImport } from './routes/admin.users'
-import { Route as AdminYieldsRouteImport } from './routes/admin.yields'
-import { Route as DashboardIndexRouteImport } from './routes/dashboard.index'
-import { Route as DashboardCopilotRouteImport } from './routes/dashboard.copilot'
-import { Route as DashboardGoalsRouteImport } from './routes/dashboard.goals'
-import { Route as DashboardHelpRouteImport } from './routes/dashboard.help'
-import { Route as DashboardMarketsRouteImport } from './routes/dashboard.markets'
-import { Route as DashboardPortfolioRouteImport } from './routes/dashboard.portfolio'
-import { Route as DashboardSendReceiveRouteImport } from './routes/dashboard.send-receive'
-import { Route as DashboardSettingsRouteImport } from './routes/dashboard.settings'
-import { Route as DashboardSpendRouteImport } from './routes/dashboard.spend'
-import { Route as DashboardTransactionsRouteImport } from './routes/dashboard.transactions'
+import { Route as AuthenticatedAdminRouteImport } from './routes/_authenticated/admin'
+import { Route as AuthenticatedDashboardRouteImport } from './routes/_authenticated/dashboard'
+import { Route as AuthenticatedAdminIndexRouteImport } from './routes/_authenticated/admin.index'
+import { Route as AuthenticatedAdminAnalyticsRouteImport } from './routes/_authenticated/admin.analytics'
+import { Route as AuthenticatedAdminAuditRouteImport } from './routes/_authenticated/admin.audit'
+import { Route as AuthenticatedAdminCardsRouteImport } from './routes/_authenticated/admin.cards'
+import { Route as AuthenticatedAdminSettingsRouteImport } from './routes/_authenticated/admin.settings'
+import { Route as AuthenticatedAdminStrategiesRouteImport } from './routes/_authenticated/admin.strategies'
+import { Route as AuthenticatedAdminTransactionsRouteImport } from './routes/_authenticated/admin.transactions'
+import { Route as AuthenticatedAdminUsersRouteImport } from './routes/_authenticated/admin.users'
+import { Route as AuthenticatedAdminYieldsRouteImport } from './routes/_authenticated/admin.yields'
+import { Route as AuthenticatedDashboardIndexRouteImport } from './routes/_authenticated/dashboard.index'
+import { Route as AuthenticatedDashboardCopilotRouteImport } from './routes/_authenticated/dashboard.copilot'
+import { Route as AuthenticatedDashboardGoalsRouteImport } from './routes/_authenticated/dashboard.goals'
+import { Route as AuthenticatedDashboardHelpRouteImport } from './routes/_authenticated/dashboard.help'
+import { Route as AuthenticatedDashboardMarketsRouteImport } from './routes/_authenticated/dashboard.markets'
+import { Route as AuthenticatedDashboardPortfolioRouteImport } from './routes/_authenticated/dashboard.portfolio'
+import { Route as AuthenticatedDashboardSendReceiveRouteImport } from './routes/_authenticated/dashboard.send-receive'
+import { Route as AuthenticatedDashboardSettingsRouteImport } from './routes/_authenticated/dashboard.settings'
+import { Route as AuthenticatedDashboardSpendRouteImport } from './routes/_authenticated/dashboard.spend'
+import { Route as AuthenticatedDashboardTransactionsRouteImport } from './routes/_authenticated/dashboard.transactions'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
-const AdminRoute = AdminRouteImport.update({
-  id: '/admin',
+const AuthenticatedAdminRoute = AuthenticatedAdminRouteImport.update({
+  id: '/_authenticated/admin',
   path: '/admin',
   getParentRoute: () => rootRouteImport,
 } as any)
-const DashboardRoute = DashboardRouteImport.update({
-  id: '/dashboard',
+const AuthenticatedDashboardRoute = AuthenticatedDashboardRouteImport.update({
+  id: '/_authenticated/dashboard',
   path: '/dashboard',
   getParentRoute: () => rootRouteImport,
 } as any)
-const AdminIndexRoute = AdminIndexRouteImport.update({
+const AuthenticatedAdminIndexRoute = AuthenticatedAdminIndexRouteImport.update({
   id: '/',
   path: '/',
-  getParentRoute: () => AdminRoute,
+  getParentRoute: () => AuthenticatedAdminRoute,
 } as any)
-const AdminAnalyticsRoute = AdminAnalyticsRouteImport.update({
-  id: '/analytics',
-  path: '/analytics',
-  getParentRoute: () => AdminRoute,
-} as any)
-const AdminAuditRoute = AdminAuditRouteImport.update({
+const AuthenticatedAdminAnalyticsRoute =
+  AuthenticatedAdminAnalyticsRouteImport.update({
+    id: '/analytics',
+    path: '/analytics',
+    getParentRoute: () => AuthenticatedAdminRoute,
+  } as any)
+const AuthenticatedAdminAuditRoute = AuthenticatedAdminAuditRouteImport.update({
   id: '/audit',
   path: '/audit',
-  getParentRoute: () => AdminRoute,
+  getParentRoute: () => AuthenticatedAdminRoute,
 } as any)
-const AdminCardsRoute = AdminCardsRouteImport.update({
+const AuthenticatedAdminCardsRoute = AuthenticatedAdminCardsRouteImport.update({
   id: '/cards',
   path: '/cards',
-  getParentRoute: () => AdminRoute,
+  getParentRoute: () => AuthenticatedAdminRoute,
 } as any)
-const AdminSettingsRoute = AdminSettingsRouteImport.update({
-  id: '/settings',
-  path: '/settings',
-  getParentRoute: () => AdminRoute,
-} as any)
-const AdminStrategiesRoute = AdminStrategiesRouteImport.update({
-  id: '/strategies',
-  path: '/strategies',
-  getParentRoute: () => AdminRoute,
-} as any)
-const AdminTransactionsRoute = AdminTransactionsRouteImport.update({
-  id: '/transactions',
-  path: '/transactions',
-  getParentRoute: () => AdminRoute,
-} as any)
-const AdminUsersRoute = AdminUsersRouteImport.update({
+const AuthenticatedAdminSettingsRoute =
+  AuthenticatedAdminSettingsRouteImport.update({
+    id: '/settings',
+    path: '/settings',
+    getParentRoute: () => AuthenticatedAdminRoute,
+  } as any)
+const AuthenticatedAdminStrategiesRoute =
+  AuthenticatedAdminStrategiesRouteImport.update({
+    id: '/strategies',
+    path: '/strategies',
+    getParentRoute: () => AuthenticatedAdminRoute,
+  } as any)
+const AuthenticatedAdminTransactionsRoute =
+  AuthenticatedAdminTransactionsRouteImport.update({
+    id: '/transactions',
+    path: '/transactions',
+    getParentRoute: () => AuthenticatedAdminRoute,
+  } as any)
+const AuthenticatedAdminUsersRoute = AuthenticatedAdminUsersRouteImport.update({
   id: '/users',
   path: '/users',
-  getParentRoute: () => AdminRoute,
+  getParentRoute: () => AuthenticatedAdminRoute,
 } as any)
-const AdminYieldsRoute = AdminYieldsRouteImport.update({
-  id: '/yields',
-  path: '/yields',
-  getParentRoute: () => AdminRoute,
-} as any)
-const DashboardIndexRoute = DashboardIndexRouteImport.update({
-  id: '/',
-  path: '/',
-  getParentRoute: () => DashboardRoute,
-} as any)
-const DashboardCopilotRoute = DashboardCopilotRouteImport.update({
-  id: '/copilot',
-  path: '/copilot',
-  getParentRoute: () => DashboardRoute,
-} as any)
-const DashboardGoalsRoute = DashboardGoalsRouteImport.update({
-  id: '/goals',
-  path: '/goals',
-  getParentRoute: () => DashboardRoute,
-} as any)
-const DashboardHelpRoute = DashboardHelpRouteImport.update({
-  id: '/help',
-  path: '/help',
-  getParentRoute: () => DashboardRoute,
-} as any)
-const DashboardMarketsRoute = DashboardMarketsRouteImport.update({
-  id: '/markets',
-  path: '/markets',
-  getParentRoute: () => DashboardRoute,
-} as any)
-const DashboardPortfolioRoute = DashboardPortfolioRouteImport.update({
-  id: '/portfolio',
-  path: '/portfolio',
-  getParentRoute: () => DashboardRoute,
-} as any)
-const DashboardSendReceiveRoute = DashboardSendReceiveRouteImport.update({
-  id: '/send-receive',
-  path: '/send-receive',
-  getParentRoute: () => DashboardRoute,
-} as any)
-const DashboardSettingsRoute = DashboardSettingsRouteImport.update({
-  id: '/settings',
-  path: '/settings',
-  getParentRoute: () => DashboardRoute,
-} as any)
-const DashboardSpendRoute = DashboardSpendRouteImport.update({
-  id: '/spend',
-  path: '/spend',
-  getParentRoute: () => DashboardRoute,
-} as any)
-const DashboardTransactionsRoute = DashboardTransactionsRouteImport.update({
-  id: '/transactions',
-  path: '/transactions',
-  getParentRoute: () => DashboardRoute,
-} as any)
+const AuthenticatedAdminYieldsRoute =
+  AuthenticatedAdminYieldsRouteImport.update({
+    id: '/yields',
+    path: '/yields',
+    getParentRoute: () => AuthenticatedAdminRoute,
+  } as any)
+const AuthenticatedDashboardIndexRoute =
+  AuthenticatedDashboardIndexRouteImport.update({
+    id: '/',
+    path: '/',
+    getParentRoute: () => AuthenticatedDashboardRoute,
+  } as any)
+const AuthenticatedDashboardCopilotRoute =
+  AuthenticatedDashboardCopilotRouteImport.update({
+    id: '/copilot',
+    path: '/copilot',
+    getParentRoute: () => AuthenticatedDashboardRoute,
+  } as any)
+const AuthenticatedDashboardGoalsRoute =
+  AuthenticatedDashboardGoalsRouteImport.update({
+    id: '/goals',
+    path: '/goals',
+    getParentRoute: () => AuthenticatedDashboardRoute,
+  } as any)
+const AuthenticatedDashboardHelpRoute =
+  AuthenticatedDashboardHelpRouteImport.update({
+    id: '/help',
+    path: '/help',
+    getParentRoute: () => AuthenticatedDashboardRoute,
+  } as any)
+const AuthenticatedDashboardMarketsRoute =
+  AuthenticatedDashboardMarketsRouteImport.update({
+    id: '/markets',
+    path: '/markets',
+    getParentRoute: () => AuthenticatedDashboardRoute,
+  } as any)
+const AuthenticatedDashboardPortfolioRoute =
+  AuthenticatedDashboardPortfolioRouteImport.update({
+    id: '/portfolio',
+    path: '/portfolio',
+    getParentRoute: () => AuthenticatedDashboardRoute,
+  } as any)
+const AuthenticatedDashboardSendReceiveRoute =
+  AuthenticatedDashboardSendReceiveRouteImport.update({
+    id: '/send-receive',
+    path: '/send-receive',
+    getParentRoute: () => AuthenticatedDashboardRoute,
+  } as any)
+const AuthenticatedDashboardSettingsRoute =
+  AuthenticatedDashboardSettingsRouteImport.update({
+    id: '/settings',
+    path: '/settings',
+    getParentRoute: () => AuthenticatedDashboardRoute,
+  } as any)
+const AuthenticatedDashboardSpendRoute =
+  AuthenticatedDashboardSpendRouteImport.update({
+    id: '/spend',
+    path: '/spend',
+    getParentRoute: () => AuthenticatedDashboardRoute,
+  } as any)
+const AuthenticatedDashboardTransactionsRoute =
+  AuthenticatedDashboardTransactionsRouteImport.update({
+    id: '/transactions',
+    path: '/transactions',
+    getParentRoute: () => AuthenticatedDashboardRoute,
+  } as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
-  '/admin': typeof AdminRouteWithChildren
-  '/dashboard': typeof DashboardRouteWithChildren
-  '/admin/analytics': typeof AdminAnalyticsRoute
-  '/admin/audit': typeof AdminAuditRoute
-  '/admin/cards': typeof AdminCardsRoute
-  '/admin/settings': typeof AdminSettingsRoute
-  '/admin/strategies': typeof AdminStrategiesRoute
-  '/admin/transactions': typeof AdminTransactionsRoute
-  '/admin/users': typeof AdminUsersRoute
-  '/admin/yields': typeof AdminYieldsRoute
-  '/dashboard/copilot': typeof DashboardCopilotRoute
-  '/dashboard/goals': typeof DashboardGoalsRoute
-  '/dashboard/help': typeof DashboardHelpRoute
-  '/dashboard/markets': typeof DashboardMarketsRoute
-  '/dashboard/portfolio': typeof DashboardPortfolioRoute
-  '/dashboard/send-receive': typeof DashboardSendReceiveRoute
-  '/dashboard/settings': typeof DashboardSettingsRoute
-  '/dashboard/spend': typeof DashboardSpendRoute
-  '/dashboard/transactions': typeof DashboardTransactionsRoute
-  '/admin/': typeof AdminIndexRoute
-  '/dashboard/': typeof DashboardIndexRoute
+  '/admin': typeof AuthenticatedAdminRouteWithChildren
+  '/dashboard': typeof AuthenticatedDashboardRouteWithChildren
+  '/admin/analytics': typeof AuthenticatedAdminAnalyticsRoute
+  '/admin/audit': typeof AuthenticatedAdminAuditRoute
+  '/admin/cards': typeof AuthenticatedAdminCardsRoute
+  '/admin/settings': typeof AuthenticatedAdminSettingsRoute
+  '/admin/strategies': typeof AuthenticatedAdminStrategiesRoute
+  '/admin/transactions': typeof AuthenticatedAdminTransactionsRoute
+  '/admin/users': typeof AuthenticatedAdminUsersRoute
+  '/admin/yields': typeof AuthenticatedAdminYieldsRoute
+  '/dashboard/copilot': typeof AuthenticatedDashboardCopilotRoute
+  '/dashboard/goals': typeof AuthenticatedDashboardGoalsRoute
+  '/dashboard/help': typeof AuthenticatedDashboardHelpRoute
+  '/dashboard/markets': typeof AuthenticatedDashboardMarketsRoute
+  '/dashboard/portfolio': typeof AuthenticatedDashboardPortfolioRoute
+  '/dashboard/send-receive': typeof AuthenticatedDashboardSendReceiveRoute
+  '/dashboard/settings': typeof AuthenticatedDashboardSettingsRoute
+  '/dashboard/spend': typeof AuthenticatedDashboardSpendRoute
+  '/dashboard/transactions': typeof AuthenticatedDashboardTransactionsRoute
+  '/admin/': typeof AuthenticatedAdminIndexRoute
+  '/dashboard/': typeof AuthenticatedDashboardIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
-  '/admin/analytics': typeof AdminAnalyticsRoute
-  '/admin/audit': typeof AdminAuditRoute
-  '/admin/cards': typeof AdminCardsRoute
-  '/admin/settings': typeof AdminSettingsRoute
-  '/admin/strategies': typeof AdminStrategiesRoute
-  '/admin/transactions': typeof AdminTransactionsRoute
-  '/admin/users': typeof AdminUsersRoute
-  '/admin/yields': typeof AdminYieldsRoute
-  '/dashboard/copilot': typeof DashboardCopilotRoute
-  '/dashboard/goals': typeof DashboardGoalsRoute
-  '/dashboard/help': typeof DashboardHelpRoute
-  '/dashboard/markets': typeof DashboardMarketsRoute
-  '/dashboard/portfolio': typeof DashboardPortfolioRoute
-  '/dashboard/send-receive': typeof DashboardSendReceiveRoute
-  '/dashboard/settings': typeof DashboardSettingsRoute
-  '/dashboard/spend': typeof DashboardSpendRoute
-  '/dashboard/transactions': typeof DashboardTransactionsRoute
-  '/admin': typeof AdminIndexRoute
-  '/dashboard': typeof DashboardIndexRoute
+  '/admin/analytics': typeof AuthenticatedAdminAnalyticsRoute
+  '/admin/audit': typeof AuthenticatedAdminAuditRoute
+  '/admin/cards': typeof AuthenticatedAdminCardsRoute
+  '/admin/settings': typeof AuthenticatedAdminSettingsRoute
+  '/admin/strategies': typeof AuthenticatedAdminStrategiesRoute
+  '/admin/transactions': typeof AuthenticatedAdminTransactionsRoute
+  '/admin/users': typeof AuthenticatedAdminUsersRoute
+  '/admin/yields': typeof AuthenticatedAdminYieldsRoute
+  '/dashboard/copilot': typeof AuthenticatedDashboardCopilotRoute
+  '/dashboard/goals': typeof AuthenticatedDashboardGoalsRoute
+  '/dashboard/help': typeof AuthenticatedDashboardHelpRoute
+  '/dashboard/markets': typeof AuthenticatedDashboardMarketsRoute
+  '/dashboard/portfolio': typeof AuthenticatedDashboardPortfolioRoute
+  '/dashboard/send-receive': typeof AuthenticatedDashboardSendReceiveRoute
+  '/dashboard/settings': typeof AuthenticatedDashboardSettingsRoute
+  '/dashboard/spend': typeof AuthenticatedDashboardSpendRoute
+  '/dashboard/transactions': typeof AuthenticatedDashboardTransactionsRoute
+  '/admin': typeof AuthenticatedAdminIndexRoute
+  '/dashboard': typeof AuthenticatedDashboardIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
-  '/admin': typeof AdminRouteWithChildren
-  '/dashboard': typeof DashboardRouteWithChildren
-  '/admin/analytics': typeof AdminAnalyticsRoute
-  '/admin/audit': typeof AdminAuditRoute
-  '/admin/cards': typeof AdminCardsRoute
-  '/admin/settings': typeof AdminSettingsRoute
-  '/admin/strategies': typeof AdminStrategiesRoute
-  '/admin/transactions': typeof AdminTransactionsRoute
-  '/admin/users': typeof AdminUsersRoute
-  '/admin/yields': typeof AdminYieldsRoute
-  '/dashboard/copilot': typeof DashboardCopilotRoute
-  '/dashboard/goals': typeof DashboardGoalsRoute
-  '/dashboard/help': typeof DashboardHelpRoute
-  '/dashboard/markets': typeof DashboardMarketsRoute
-  '/dashboard/portfolio': typeof DashboardPortfolioRoute
-  '/dashboard/send-receive': typeof DashboardSendReceiveRoute
-  '/dashboard/settings': typeof DashboardSettingsRoute
-  '/dashboard/spend': typeof DashboardSpendRoute
-  '/dashboard/transactions': typeof DashboardTransactionsRoute
-  '/admin/': typeof AdminIndexRoute
-  '/dashboard/': typeof DashboardIndexRoute
+  '/_authenticated/admin': typeof AuthenticatedAdminRouteWithChildren
+  '/_authenticated/dashboard': typeof AuthenticatedDashboardRouteWithChildren
+  '/_authenticated/admin/analytics': typeof AuthenticatedAdminAnalyticsRoute
+  '/_authenticated/admin/audit': typeof AuthenticatedAdminAuditRoute
+  '/_authenticated/admin/cards': typeof AuthenticatedAdminCardsRoute
+  '/_authenticated/admin/settings': typeof AuthenticatedAdminSettingsRoute
+  '/_authenticated/admin/strategies': typeof AuthenticatedAdminStrategiesRoute
+  '/_authenticated/admin/transactions': typeof AuthenticatedAdminTransactionsRoute
+  '/_authenticated/admin/users': typeof AuthenticatedAdminUsersRoute
+  '/_authenticated/admin/yields': typeof AuthenticatedAdminYieldsRoute
+  '/_authenticated/dashboard/copilot': typeof AuthenticatedDashboardCopilotRoute
+  '/_authenticated/dashboard/goals': typeof AuthenticatedDashboardGoalsRoute
+  '/_authenticated/dashboard/help': typeof AuthenticatedDashboardHelpRoute
+  '/_authenticated/dashboard/markets': typeof AuthenticatedDashboardMarketsRoute
+  '/_authenticated/dashboard/portfolio': typeof AuthenticatedDashboardPortfolioRoute
+  '/_authenticated/dashboard/send-receive': typeof AuthenticatedDashboardSendReceiveRoute
+  '/_authenticated/dashboard/settings': typeof AuthenticatedDashboardSettingsRoute
+  '/_authenticated/dashboard/spend': typeof AuthenticatedDashboardSpendRoute
+  '/_authenticated/dashboard/transactions': typeof AuthenticatedDashboardTransactionsRoute
+  '/_authenticated/admin/': typeof AuthenticatedAdminIndexRoute
+  '/_authenticated/dashboard/': typeof AuthenticatedDashboardIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -264,33 +279,33 @@ export interface FileRouteTypes {
   id:
     | '__root__'
     | '/'
-    | '/admin'
-    | '/dashboard'
-    | '/admin/analytics'
-    | '/admin/audit'
-    | '/admin/cards'
-    | '/admin/settings'
-    | '/admin/strategies'
-    | '/admin/transactions'
-    | '/admin/users'
-    | '/admin/yields'
-    | '/dashboard/copilot'
-    | '/dashboard/goals'
-    | '/dashboard/help'
-    | '/dashboard/markets'
-    | '/dashboard/portfolio'
-    | '/dashboard/send-receive'
-    | '/dashboard/settings'
-    | '/dashboard/spend'
-    | '/dashboard/transactions'
-    | '/admin/'
-    | '/dashboard/'
+    | '/_authenticated/admin'
+    | '/_authenticated/dashboard'
+    | '/_authenticated/admin/analytics'
+    | '/_authenticated/admin/audit'
+    | '/_authenticated/admin/cards'
+    | '/_authenticated/admin/settings'
+    | '/_authenticated/admin/strategies'
+    | '/_authenticated/admin/transactions'
+    | '/_authenticated/admin/users'
+    | '/_authenticated/admin/yields'
+    | '/_authenticated/dashboard/copilot'
+    | '/_authenticated/dashboard/goals'
+    | '/_authenticated/dashboard/help'
+    | '/_authenticated/dashboard/markets'
+    | '/_authenticated/dashboard/portfolio'
+    | '/_authenticated/dashboard/send-receive'
+    | '/_authenticated/dashboard/settings'
+    | '/_authenticated/dashboard/spend'
+    | '/_authenticated/dashboard/transactions'
+    | '/_authenticated/admin/'
+    | '/_authenticated/dashboard/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
-  AdminRoute: typeof AdminRouteWithChildren
-  DashboardRoute: typeof DashboardRouteWithChildren
+  AuthenticatedAdminRoute: typeof AuthenticatedAdminRouteWithChildren
+  AuthenticatedDashboardRoute: typeof AuthenticatedDashboardRouteWithChildren
 }
 
 declare module '@tanstack/react-router' {
@@ -302,216 +317,221 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/admin': {
-      id: '/admin'
+    '/_authenticated/admin': {
+      id: '/_authenticated/admin'
       path: '/admin'
       fullPath: '/admin'
-      preLoaderRoute: typeof AdminRouteImport
+      preLoaderRoute: typeof AuthenticatedAdminRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/dashboard': {
-      id: '/dashboard'
+    '/_authenticated/dashboard': {
+      id: '/_authenticated/dashboard'
       path: '/dashboard'
       fullPath: '/dashboard'
-      preLoaderRoute: typeof DashboardRouteImport
+      preLoaderRoute: typeof AuthenticatedDashboardRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/admin/': {
-      id: '/admin/'
+    '/_authenticated/admin/': {
+      id: '/_authenticated/admin/'
       path: '/'
       fullPath: '/admin/'
-      preLoaderRoute: typeof AdminIndexRouteImport
-      parentRoute: typeof AdminRoute
+      preLoaderRoute: typeof AuthenticatedAdminIndexRouteImport
+      parentRoute: typeof AuthenticatedAdminRoute
     }
-    '/admin/analytics': {
-      id: '/admin/analytics'
+    '/_authenticated/admin/analytics': {
+      id: '/_authenticated/admin/analytics'
       path: '/analytics'
       fullPath: '/admin/analytics'
-      preLoaderRoute: typeof AdminAnalyticsRouteImport
-      parentRoute: typeof AdminRoute
+      preLoaderRoute: typeof AuthenticatedAdminAnalyticsRouteImport
+      parentRoute: typeof AuthenticatedAdminRoute
     }
-    '/admin/audit': {
-      id: '/admin/audit'
+    '/_authenticated/admin/audit': {
+      id: '/_authenticated/admin/audit'
       path: '/audit'
       fullPath: '/admin/audit'
-      preLoaderRoute: typeof AdminAuditRouteImport
-      parentRoute: typeof AdminRoute
+      preLoaderRoute: typeof AuthenticatedAdminAuditRouteImport
+      parentRoute: typeof AuthenticatedAdminRoute
     }
-    '/admin/cards': {
-      id: '/admin/cards'
+    '/_authenticated/admin/cards': {
+      id: '/_authenticated/admin/cards'
       path: '/cards'
       fullPath: '/admin/cards'
-      preLoaderRoute: typeof AdminCardsRouteImport
-      parentRoute: typeof AdminRoute
+      preLoaderRoute: typeof AuthenticatedAdminCardsRouteImport
+      parentRoute: typeof AuthenticatedAdminRoute
     }
-    '/admin/settings': {
-      id: '/admin/settings'
+    '/_authenticated/admin/settings': {
+      id: '/_authenticated/admin/settings'
       path: '/settings'
       fullPath: '/admin/settings'
-      preLoaderRoute: typeof AdminSettingsRouteImport
-      parentRoute: typeof AdminRoute
+      preLoaderRoute: typeof AuthenticatedAdminSettingsRouteImport
+      parentRoute: typeof AuthenticatedAdminRoute
     }
-    '/admin/strategies': {
-      id: '/admin/strategies'
+    '/_authenticated/admin/strategies': {
+      id: '/_authenticated/admin/strategies'
       path: '/strategies'
       fullPath: '/admin/strategies'
-      preLoaderRoute: typeof AdminStrategiesRouteImport
-      parentRoute: typeof AdminRoute
+      preLoaderRoute: typeof AuthenticatedAdminStrategiesRouteImport
+      parentRoute: typeof AuthenticatedAdminRoute
     }
-    '/admin/transactions': {
-      id: '/admin/transactions'
+    '/_authenticated/admin/transactions': {
+      id: '/_authenticated/admin/transactions'
       path: '/transactions'
       fullPath: '/admin/transactions'
-      preLoaderRoute: typeof AdminTransactionsRouteImport
-      parentRoute: typeof AdminRoute
+      preLoaderRoute: typeof AuthenticatedAdminTransactionsRouteImport
+      parentRoute: typeof AuthenticatedAdminRoute
     }
-    '/admin/users': {
-      id: '/admin/users'
+    '/_authenticated/admin/users': {
+      id: '/_authenticated/admin/users'
       path: '/users'
       fullPath: '/admin/users'
-      preLoaderRoute: typeof AdminUsersRouteImport
-      parentRoute: typeof AdminRoute
+      preLoaderRoute: typeof AuthenticatedAdminUsersRouteImport
+      parentRoute: typeof AuthenticatedAdminRoute
     }
-    '/admin/yields': {
-      id: '/admin/yields'
+    '/_authenticated/admin/yields': {
+      id: '/_authenticated/admin/yields'
       path: '/yields'
       fullPath: '/admin/yields'
-      preLoaderRoute: typeof AdminYieldsRouteImport
-      parentRoute: typeof AdminRoute
+      preLoaderRoute: typeof AuthenticatedAdminYieldsRouteImport
+      parentRoute: typeof AuthenticatedAdminRoute
     }
-    '/dashboard/': {
-      id: '/dashboard/'
+    '/_authenticated/dashboard/': {
+      id: '/_authenticated/dashboard/'
       path: '/'
       fullPath: '/dashboard/'
-      preLoaderRoute: typeof DashboardIndexRouteImport
-      parentRoute: typeof DashboardRoute
+      preLoaderRoute: typeof AuthenticatedDashboardIndexRouteImport
+      parentRoute: typeof AuthenticatedDashboardRoute
     }
-    '/dashboard/copilot': {
-      id: '/dashboard/copilot'
+    '/_authenticated/dashboard/copilot': {
+      id: '/_authenticated/dashboard/copilot'
       path: '/copilot'
       fullPath: '/dashboard/copilot'
-      preLoaderRoute: typeof DashboardCopilotRouteImport
-      parentRoute: typeof DashboardRoute
+      preLoaderRoute: typeof AuthenticatedDashboardCopilotRouteImport
+      parentRoute: typeof AuthenticatedDashboardRoute
     }
-    '/dashboard/goals': {
-      id: '/dashboard/goals'
+    '/_authenticated/dashboard/goals': {
+      id: '/_authenticated/dashboard/goals'
       path: '/goals'
       fullPath: '/dashboard/goals'
-      preLoaderRoute: typeof DashboardGoalsRouteImport
-      parentRoute: typeof DashboardRoute
+      preLoaderRoute: typeof AuthenticatedDashboardGoalsRouteImport
+      parentRoute: typeof AuthenticatedDashboardRoute
     }
-    '/dashboard/help': {
-      id: '/dashboard/help'
+    '/_authenticated/dashboard/help': {
+      id: '/_authenticated/dashboard/help'
       path: '/help'
       fullPath: '/dashboard/help'
-      preLoaderRoute: typeof DashboardHelpRouteImport
-      parentRoute: typeof DashboardRoute
+      preLoaderRoute: typeof AuthenticatedDashboardHelpRouteImport
+      parentRoute: typeof AuthenticatedDashboardRoute
     }
-    '/dashboard/markets': {
-      id: '/dashboard/markets'
+    '/_authenticated/dashboard/markets': {
+      id: '/_authenticated/dashboard/markets'
       path: '/markets'
       fullPath: '/dashboard/markets'
-      preLoaderRoute: typeof DashboardMarketsRouteImport
-      parentRoute: typeof DashboardRoute
+      preLoaderRoute: typeof AuthenticatedDashboardMarketsRouteImport
+      parentRoute: typeof AuthenticatedDashboardRoute
     }
-    '/dashboard/portfolio': {
-      id: '/dashboard/portfolio'
+    '/_authenticated/dashboard/portfolio': {
+      id: '/_authenticated/dashboard/portfolio'
       path: '/portfolio'
       fullPath: '/dashboard/portfolio'
-      preLoaderRoute: typeof DashboardPortfolioRouteImport
-      parentRoute: typeof DashboardRoute
+      preLoaderRoute: typeof AuthenticatedDashboardPortfolioRouteImport
+      parentRoute: typeof AuthenticatedDashboardRoute
     }
-    '/dashboard/send-receive': {
-      id: '/dashboard/send-receive'
+    '/_authenticated/dashboard/send-receive': {
+      id: '/_authenticated/dashboard/send-receive'
       path: '/send-receive'
       fullPath: '/dashboard/send-receive'
-      preLoaderRoute: typeof DashboardSendReceiveRouteImport
-      parentRoute: typeof DashboardRoute
+      preLoaderRoute: typeof AuthenticatedDashboardSendReceiveRouteImport
+      parentRoute: typeof AuthenticatedDashboardRoute
     }
-    '/dashboard/settings': {
-      id: '/dashboard/settings'
+    '/_authenticated/dashboard/settings': {
+      id: '/_authenticated/dashboard/settings'
       path: '/settings'
       fullPath: '/dashboard/settings'
-      preLoaderRoute: typeof DashboardSettingsRouteImport
-      parentRoute: typeof DashboardRoute
+      preLoaderRoute: typeof AuthenticatedDashboardSettingsRouteImport
+      parentRoute: typeof AuthenticatedDashboardRoute
     }
-    '/dashboard/spend': {
-      id: '/dashboard/spend'
+    '/_authenticated/dashboard/spend': {
+      id: '/_authenticated/dashboard/spend'
       path: '/spend'
       fullPath: '/dashboard/spend'
-      preLoaderRoute: typeof DashboardSpendRouteImport
-      parentRoute: typeof DashboardRoute
+      preLoaderRoute: typeof AuthenticatedDashboardSpendRouteImport
+      parentRoute: typeof AuthenticatedDashboardRoute
     }
-    '/dashboard/transactions': {
-      id: '/dashboard/transactions'
+    '/_authenticated/dashboard/transactions': {
+      id: '/_authenticated/dashboard/transactions'
       path: '/transactions'
       fullPath: '/dashboard/transactions'
-      preLoaderRoute: typeof DashboardTransactionsRouteImport
-      parentRoute: typeof DashboardRoute
+      preLoaderRoute: typeof AuthenticatedDashboardTransactionsRouteImport
+      parentRoute: typeof AuthenticatedDashboardRoute
     }
   }
 }
 
-interface AdminRouteChildren {
-  AdminAnalyticsRoute: typeof AdminAnalyticsRoute
-  AdminAuditRoute: typeof AdminAuditRoute
-  AdminCardsRoute: typeof AdminCardsRoute
-  AdminSettingsRoute: typeof AdminSettingsRoute
-  AdminStrategiesRoute: typeof AdminStrategiesRoute
-  AdminTransactionsRoute: typeof AdminTransactionsRoute
-  AdminUsersRoute: typeof AdminUsersRoute
-  AdminYieldsRoute: typeof AdminYieldsRoute
-  AdminIndexRoute: typeof AdminIndexRoute
+interface AuthenticatedAdminRouteChildren {
+  AuthenticatedAdminAnalyticsRoute: typeof AuthenticatedAdminAnalyticsRoute
+  AuthenticatedAdminAuditRoute: typeof AuthenticatedAdminAuditRoute
+  AuthenticatedAdminCardsRoute: typeof AuthenticatedAdminCardsRoute
+  AuthenticatedAdminSettingsRoute: typeof AuthenticatedAdminSettingsRoute
+  AuthenticatedAdminStrategiesRoute: typeof AuthenticatedAdminStrategiesRoute
+  AuthenticatedAdminTransactionsRoute: typeof AuthenticatedAdminTransactionsRoute
+  AuthenticatedAdminUsersRoute: typeof AuthenticatedAdminUsersRoute
+  AuthenticatedAdminYieldsRoute: typeof AuthenticatedAdminYieldsRoute
+  AuthenticatedAdminIndexRoute: typeof AuthenticatedAdminIndexRoute
 }
 
-const AdminRouteChildren: AdminRouteChildren = {
-  AdminAnalyticsRoute: AdminAnalyticsRoute,
-  AdminAuditRoute: AdminAuditRoute,
-  AdminCardsRoute: AdminCardsRoute,
-  AdminSettingsRoute: AdminSettingsRoute,
-  AdminStrategiesRoute: AdminStrategiesRoute,
-  AdminTransactionsRoute: AdminTransactionsRoute,
-  AdminUsersRoute: AdminUsersRoute,
-  AdminYieldsRoute: AdminYieldsRoute,
-  AdminIndexRoute: AdminIndexRoute,
+const AuthenticatedAdminRouteChildren: AuthenticatedAdminRouteChildren = {
+  AuthenticatedAdminAnalyticsRoute: AuthenticatedAdminAnalyticsRoute,
+  AuthenticatedAdminAuditRoute: AuthenticatedAdminAuditRoute,
+  AuthenticatedAdminCardsRoute: AuthenticatedAdminCardsRoute,
+  AuthenticatedAdminSettingsRoute: AuthenticatedAdminSettingsRoute,
+  AuthenticatedAdminStrategiesRoute: AuthenticatedAdminStrategiesRoute,
+  AuthenticatedAdminTransactionsRoute: AuthenticatedAdminTransactionsRoute,
+  AuthenticatedAdminUsersRoute: AuthenticatedAdminUsersRoute,
+  AuthenticatedAdminYieldsRoute: AuthenticatedAdminYieldsRoute,
+  AuthenticatedAdminIndexRoute: AuthenticatedAdminIndexRoute,
 }
 
-const AdminRouteWithChildren = AdminRoute._addFileChildren(AdminRouteChildren)
+const AuthenticatedAdminRouteWithChildren =
+  AuthenticatedAdminRoute._addFileChildren(AuthenticatedAdminRouteChildren)
 
-interface DashboardRouteChildren {
-  DashboardCopilotRoute: typeof DashboardCopilotRoute
-  DashboardGoalsRoute: typeof DashboardGoalsRoute
-  DashboardHelpRoute: typeof DashboardHelpRoute
-  DashboardMarketsRoute: typeof DashboardMarketsRoute
-  DashboardPortfolioRoute: typeof DashboardPortfolioRoute
-  DashboardSendReceiveRoute: typeof DashboardSendReceiveRoute
-  DashboardSettingsRoute: typeof DashboardSettingsRoute
-  DashboardSpendRoute: typeof DashboardSpendRoute
-  DashboardTransactionsRoute: typeof DashboardTransactionsRoute
-  DashboardIndexRoute: typeof DashboardIndexRoute
+interface AuthenticatedDashboardRouteChildren {
+  AuthenticatedDashboardCopilotRoute: typeof AuthenticatedDashboardCopilotRoute
+  AuthenticatedDashboardGoalsRoute: typeof AuthenticatedDashboardGoalsRoute
+  AuthenticatedDashboardHelpRoute: typeof AuthenticatedDashboardHelpRoute
+  AuthenticatedDashboardMarketsRoute: typeof AuthenticatedDashboardMarketsRoute
+  AuthenticatedDashboardPortfolioRoute: typeof AuthenticatedDashboardPortfolioRoute
+  AuthenticatedDashboardSendReceiveRoute: typeof AuthenticatedDashboardSendReceiveRoute
+  AuthenticatedDashboardSettingsRoute: typeof AuthenticatedDashboardSettingsRoute
+  AuthenticatedDashboardSpendRoute: typeof AuthenticatedDashboardSpendRoute
+  AuthenticatedDashboardTransactionsRoute: typeof AuthenticatedDashboardTransactionsRoute
+  AuthenticatedDashboardIndexRoute: typeof AuthenticatedDashboardIndexRoute
 }
 
-const DashboardRouteChildren: DashboardRouteChildren = {
-  DashboardCopilotRoute: DashboardCopilotRoute,
-  DashboardGoalsRoute: DashboardGoalsRoute,
-  DashboardHelpRoute: DashboardHelpRoute,
-  DashboardMarketsRoute: DashboardMarketsRoute,
-  DashboardPortfolioRoute: DashboardPortfolioRoute,
-  DashboardSendReceiveRoute: DashboardSendReceiveRoute,
-  DashboardSettingsRoute: DashboardSettingsRoute,
-  DashboardSpendRoute: DashboardSpendRoute,
-  DashboardTransactionsRoute: DashboardTransactionsRoute,
-  DashboardIndexRoute: DashboardIndexRoute,
-}
+const AuthenticatedDashboardRouteChildren: AuthenticatedDashboardRouteChildren =
+  {
+    AuthenticatedDashboardCopilotRoute: AuthenticatedDashboardCopilotRoute,
+    AuthenticatedDashboardGoalsRoute: AuthenticatedDashboardGoalsRoute,
+    AuthenticatedDashboardHelpRoute: AuthenticatedDashboardHelpRoute,
+    AuthenticatedDashboardMarketsRoute: AuthenticatedDashboardMarketsRoute,
+    AuthenticatedDashboardPortfolioRoute: AuthenticatedDashboardPortfolioRoute,
+    AuthenticatedDashboardSendReceiveRoute:
+      AuthenticatedDashboardSendReceiveRoute,
+    AuthenticatedDashboardSettingsRoute: AuthenticatedDashboardSettingsRoute,
+    AuthenticatedDashboardSpendRoute: AuthenticatedDashboardSpendRoute,
+    AuthenticatedDashboardTransactionsRoute:
+      AuthenticatedDashboardTransactionsRoute,
+    AuthenticatedDashboardIndexRoute: AuthenticatedDashboardIndexRoute,
+  }
 
-const DashboardRouteWithChildren = DashboardRoute._addFileChildren(
-  DashboardRouteChildren,
-)
+const AuthenticatedDashboardRouteWithChildren =
+  AuthenticatedDashboardRoute._addFileChildren(
+    AuthenticatedDashboardRouteChildren,
+  )
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
-  AdminRoute: AdminRouteWithChildren,
-  DashboardRoute: DashboardRouteWithChildren,
+  AuthenticatedAdminRoute: AuthenticatedAdminRouteWithChildren,
+  AuthenticatedDashboardRoute: AuthenticatedDashboardRouteWithChildren,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

@@ -23,7 +23,7 @@ import {
 import { GlassCard, PageHeader } from "@/components/nexafi/app-shell";
 import { holdings, performanceSeries } from "@/lib/mock-data";
 
-export const Route = createFileRoute("/dashboard/portfolio")({
+export const Route = createFileRoute("/_authenticated/dashboard/portfolio")({
   head: () => ({
     meta: [
       { title: "Portfolio — NexaFi" },

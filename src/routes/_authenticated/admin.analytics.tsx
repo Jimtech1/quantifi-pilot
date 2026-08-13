@@ -14,7 +14,7 @@ import {
 } from "@/components/ui/table";
 import { GlassCard, PageHeader, StatCard } from "@/components/nexafi/app-shell";
 
-export const Route = createFileRoute("/admin/analytics")({
+export const Route = createFileRoute("/_authenticated/admin/analytics")({
   head: () => ({
     meta: [
       { title: "Analytics — NexaFi Admin" },

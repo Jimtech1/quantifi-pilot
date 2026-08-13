@@ -7,7 +7,7 @@ import { Progress } from "@/components/ui/progress";
 import { GlassCard, PageHeader } from "@/components/nexafi/app-shell";
 import { goals } from "@/lib/mock-data";
 
-export const Route = createFileRoute("/dashboard/goals")({
+export const Route = createFileRoute("/_authenticated/dashboard/goals")({
   head: () => ({
     meta: [
       { title: "Goals — NexaFi" },

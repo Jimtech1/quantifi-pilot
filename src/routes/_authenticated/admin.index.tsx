@@ -13,7 +13,7 @@ import {
 import { GlassCard, PageHeader, StatCard } from "@/components/nexafi/app-shell";
 import { adminGrowth, adminStats, systemAlerts } from "@/lib/mock-data";
 
-export const Route = createFileRoute("/admin/")({
+export const Route = createFileRoute("/_authenticated/admin/")({
   head: () => ({
     meta: [
       { title: "Admin Dashboard — NexaFi" },

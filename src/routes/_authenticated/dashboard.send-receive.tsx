@@ -16,7 +16,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { GlassCard, PageHeader } from "@/components/nexafi/app-shell";
 import { savedAddresses, user } from "@/lib/mock-data";
 
-export const Route = createFileRoute("/dashboard/send-receive")({
+export const Route = createFileRoute("/_authenticated/dashboard/send-receive")({
   head: () => ({
     meta: [
       { title: "Send & Receive — NexaFi" },
