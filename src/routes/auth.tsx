@@ -11,6 +11,9 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { GlassCard } from "@/components/nexafi/app-shell";
 import { LogoWordmark } from "@/components/nexafi/logo";
 
+const DEMO_EMAIL = "demo@nexafi.io";
+const DEMO_PASSWORD = "NexaFiDemo2026!";
+
 export const Route = createFileRoute("/auth")({
   head: () => ({
     meta: [
