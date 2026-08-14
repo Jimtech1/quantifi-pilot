@@ -66,8 +66,29 @@ function AuthPage() {
       toast.error(error.message);
       return;
     }
-    toast.success("Account created — check your email to confirm, then sign in.");
+    toast.success("Account created — your NexaFi accounts are ready.");
+    navigate({ to: "/dashboard" });
   }
+
+  async function demoLogin() {
+    setBusy(true);
+    let res = await supabase.auth.signInWithPassword({ email: DEMO_EMAIL, password: DEMO_PASSWORD });
+    if (res.error) {
+      await supabase.auth.signUp({
+        email: DEMO_EMAIL,
+        password: DEMO_PASSWORD,
+        options: { data: { full_name: "Adaeze Okonkwo (Demo)" } },
+      });
+      res = await supabase.auth.signInWithPassword({ email: DEMO_EMAIL, password: DEMO_PASSWORD });
+    }
+    setBusy(false);
+    if (res.error) {
+      toast.error(res.error.message);
+      return;
+    }
+    navigate({ to: "/dashboard" });
+  }
+
 
   async function google() {
     const result = await lovable.auth.signInWithOAuth("google", {
