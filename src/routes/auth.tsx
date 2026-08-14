@@ -165,6 +165,23 @@ function AuthPage() {
             Continue with Google
           </Button>
         </GlassCard>
+
+        <GlassCard className="border-accent/30">
+          <p className="text-sm font-medium">Demo login</p>
+          <p className="num mt-2 text-xs text-muted-foreground">
+            Email: {DEMO_EMAIL}
+            <br />
+            Password: {DEMO_PASSWORD}
+          </p>
+          <Button
+            variant="outline"
+            className="mt-3 w-full"
+            disabled={busy}
+            onClick={demoLogin}
+          >
+            {busy && <Loader2 className="mr-2 h-4 w-4 animate-spin" />} Enter demo account
+          </Button>
+        </GlassCard>
       </div>
     </main>
   );
