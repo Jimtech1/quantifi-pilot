@@ -11,6 +11,9 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { GlassCard } from "@/components/nexafi/app-shell";
 import { LogoWordmark } from "@/components/nexafi/logo";
 
+const DEMO_EMAIL = "demo@nexafi.io";
+const DEMO_PASSWORD = "NexaFiDemo2026!";
+
 export const Route = createFileRoute("/auth")({
   head: () => ({
     meta: [
@@ -43,7 +46,10 @@ function AuthPage() {
     setBusy(true);
     const { error } = await supabase.auth.signInWithPassword({ email, password });
     setBusy(false);
-    if (error) return toast.error(error.message);
+    if (error) {
+      toast.error(error.message);
+      return;
+    }
     navigate({ to: "/dashboard" });
   }
 
@@ -59,15 +65,42 @@ function AuthPage() {
       },
     });
     setBusy(false);
-    if (error) return toast.error(error.message);
-    toast.success("Account created — check your email to confirm, then sign in.");
+    if (error) {
+      toast.error(error.message);
+      return;
+    }
+    toast.success("Account created — your NexaFi accounts are ready.");
+    navigate({ to: "/dashboard" });
   }
+
+  async function demoLogin() {
+    setBusy(true);
+    let res = await supabase.auth.signInWithPassword({ email: DEMO_EMAIL, password: DEMO_PASSWORD });
+    if (res.error) {
+      await supabase.auth.signUp({
+        email: DEMO_EMAIL,
+        password: DEMO_PASSWORD,
+        options: { data: { full_name: "Adaeze Okonkwo (Demo)" } },
+      });
+      res = await supabase.auth.signInWithPassword({ email: DEMO_EMAIL, password: DEMO_PASSWORD });
+    }
+    setBusy(false);
+    if (res.error) {
+      toast.error(res.error.message);
+      return;
+    }
+    navigate({ to: "/dashboard" });
+  }
+
 
   async function google() {
     const result = await lovable.auth.signInWithOAuth("google", {
       redirect_uri: window.location.origin,
     });
-    if (result.error) return toast.error("Google sign-in failed");
+    if (result.error) {
+      toast.error("Google sign-in failed");
+      return;
+    }
     if (result.redirected) return;
     navigate({ to: "/dashboard" });
   }
@@ -130,6 +163,23 @@ function AuthPage() {
           </div>
           <Button variant="outline" className="w-full" onClick={google}>
             Continue with Google
+          </Button>
+        </GlassCard>
+
+        <GlassCard className="border-accent/30">
+          <p className="text-sm font-medium">Demo login</p>
+          <p className="num mt-2 text-xs text-muted-foreground">
+            Email: {DEMO_EMAIL}
+            <br />
+            Password: {DEMO_PASSWORD}
+          </p>
+          <Button
+            variant="outline"
+            className="mt-3 w-full"
+            disabled={busy}
+            onClick={demoLogin}
+          >
+            {busy && <Loader2 className="mr-2 h-4 w-4 animate-spin" />} Enter demo account
           </Button>
         </GlassCard>
       </div>

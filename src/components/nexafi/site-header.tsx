@@ -37,10 +37,10 @@ export function SiteHeader() {
         <div className="flex items-center gap-1.5">
           <ThemeToggle />
           <Button asChild variant="ghost" size="sm" className="hidden sm:inline-flex">
-            <Link to="/dashboard">Sign in</Link>
+            <Link to="/auth">Sign in</Link>
           </Button>
           <Button asChild size="sm" className="brand-gradient rounded-full text-white glow">
-            <Link to="/dashboard">Get Started</Link>
+            <Link to="/auth">Get Started</Link>
           </Button>
           <Button
             variant="ghost"

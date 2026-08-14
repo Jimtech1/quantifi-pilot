@@ -259,3 +259,34 @@ export const systemAlerts = [
   { tone: "warning", text: "High gas fees detected — consider route optimization" },
   { tone: "accent", text: "3 new AI strategies pending approval" },
 ] as const;
+
+export const defiStrategies = [
+  {
+    name: "Stablecoin Lending",
+    protocol: "Venus protocol · BNB Chain",
+    apy: "8–12% APY",
+    risk: "Low",
+    blurb: "USDT and USDC supplied to Venus money markets, earning lending interest.",
+  },
+  {
+    name: "Yield Farming",
+    protocol: "PancakeSwap · BNB Chain",
+    apy: "10–18% APY",
+    risk: "Medium",
+    blurb: "Liquidity provision on blue-chip pairs with auto-compounded CAKE rewards.",
+  },
+  {
+    name: "BNB Staking",
+    protocol: "BNB Chain",
+    apy: "5–8% APY",
+    risk: "Low",
+    blurb: "Native BNB delegated to validators for protocol staking rewards.",
+  },
+  {
+    name: "Liquid Staking",
+    protocol: "Stader · BNB Chain",
+    apy: "6–10% APY",
+    risk: "Low",
+    blurb: "Stake BNB while keeping BNBx liquid for use across other strategies.",
+  },
+];

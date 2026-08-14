@@ -5,7 +5,7 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { GlassCard, PageHeader } from "@/components/nexafi/app-shell";
-import { marketAssets, marketOpportunities } from "@/lib/mock-data";
+import { defiStrategies, marketAssets, marketOpportunities } from "@/lib/mock-data";
 
 export const Route = createFileRoute("/_authenticated/dashboard/markets")({
   head: () => ({
@@ -32,6 +32,45 @@ function MarketsPage() {
         <Button variant="outline">Filter: All</Button>
         <Button variant="outline">Sort: APY</Button>
       </div>
+
+      <GlassCard>
+        <div className="flex flex-wrap items-center justify-between gap-2">
+          <div>
+            <h2 className="font-display text-lg font-semibold">DeFi yield strategies</h2>
+            <p className="text-xs text-muted-foreground">
+              NexaFi leverages the BNB Chain DeFi ecosystem for yield generation.
+            </p>
+          </div>
+          <Badge variant="outline" className="border-accent/40 text-accent">
+            BNB Chain
+          </Badge>
+        </div>
+        <div className="mt-4 grid gap-3 md:grid-cols-2">
+          {defiStrategies.map((s) => (
+            <div key={s.name} className="rounded-xl border border-border/60 bg-background/30 p-4">
+              <div className="flex items-start justify-between gap-3">
+                <div>
+                  <p className="text-sm font-medium">{s.name}</p>
+                  <p className="text-xs text-muted-foreground">{s.protocol}</p>
+                </div>
+                <span className="num text-lg font-semibold text-success">{s.apy}</span>
+              </div>
+              <p className="mt-2 text-xs text-muted-foreground">{s.blurb}</p>
+              <div className="mt-3 flex items-center gap-2">
+                <Badge variant="outline">{s.risk} risk</Badge>
+                <Button
+                  size="sm"
+                  variant="outline"
+                  className="ml-auto"
+                  onClick={() => toast.success(`Allocating to ${s.name}`)}
+                >
+                  Allocate
+                </Button>
+              </div>
+            </div>
+          ))}
+        </div>
+      </GlassCard>
 
       <GlassCard>
         <h2 className="font-display text-lg font-semibold">Top opportunities</h2>
