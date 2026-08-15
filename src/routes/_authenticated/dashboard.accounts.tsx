@@ -79,7 +79,7 @@ function AccountsPage() {
 
   const deposit = useMutation({
     mutationFn: useServerFn(recordDeposit),
-    onSuccess: (r) => {
+    onSuccess: (r: { reference: string }) => {
       toast.success(`Deposit confirmed · ${r.reference}`);
       void invalidate();
     },
@@ -87,7 +87,7 @@ function AccountsPage() {
   });
   const convert = useMutation({
     mutationFn: useServerFn(convertFunds),
-    onSuccess: (r) => {
+    onSuccess: (r: { rate: number; received: number }) => {
       toast.success(`Converted at ${r.rate} · received ${r.received}`);
       void invalidate();
     },
@@ -95,7 +95,7 @@ function AccountsPage() {
   });
   const payout = useMutation({
     mutationFn: useServerFn(sendPayout),
-    onSuccess: (r) => {
+    onSuccess: (r: { reference: string }) => {
       toast.success(`Payout sent · ${r.reference}`);
       void invalidate();
     },

@@ -24,6 +24,7 @@ import { Route as AuthenticatedAdminTransactionsRouteImport } from './routes/_au
 import { Route as AuthenticatedAdminUsersRouteImport } from './routes/_authenticated/admin.users'
 import { Route as AuthenticatedAdminYieldsRouteImport } from './routes/_authenticated/admin.yields'
 import { Route as AuthenticatedDashboardIndexRouteImport } from './routes/_authenticated/dashboard.index'
+import { Route as AuthenticatedDashboardAccountsRouteImport } from './routes/_authenticated/dashboard.accounts'
 import { Route as AuthenticatedDashboardCopilotRouteImport } from './routes/_authenticated/dashboard.copilot'
 import { Route as AuthenticatedDashboardGoalsRouteImport } from './routes/_authenticated/dashboard.goals'
 import { Route as AuthenticatedDashboardHelpRouteImport } from './routes/_authenticated/dashboard.help'
@@ -114,6 +115,12 @@ const AuthenticatedDashboardIndexRoute =
     path: '/',
     getParentRoute: () => AuthenticatedDashboardRoute,
   } as any)
+const AuthenticatedDashboardAccountsRoute =
+  AuthenticatedDashboardAccountsRouteImport.update({
+    id: '/accounts',
+    path: '/accounts',
+    getParentRoute: () => AuthenticatedDashboardRoute,
+  } as any)
 const AuthenticatedDashboardCopilotRoute =
   AuthenticatedDashboardCopilotRouteImport.update({
     id: '/copilot',
@@ -182,6 +189,7 @@ export interface FileRoutesByFullPath {
   '/admin/transactions': typeof AuthenticatedAdminTransactionsRoute
   '/admin/users': typeof AuthenticatedAdminUsersRoute
   '/admin/yields': typeof AuthenticatedAdminYieldsRoute
+  '/dashboard/accounts': typeof AuthenticatedDashboardAccountsRoute
   '/dashboard/copilot': typeof AuthenticatedDashboardCopilotRoute
   '/dashboard/goals': typeof AuthenticatedDashboardGoalsRoute
   '/dashboard/help': typeof AuthenticatedDashboardHelpRoute
@@ -205,6 +213,7 @@ export interface FileRoutesByTo {
   '/admin/transactions': typeof AuthenticatedAdminTransactionsRoute
   '/admin/users': typeof AuthenticatedAdminUsersRoute
   '/admin/yields': typeof AuthenticatedAdminYieldsRoute
+  '/dashboard/accounts': typeof AuthenticatedDashboardAccountsRoute
   '/dashboard/copilot': typeof AuthenticatedDashboardCopilotRoute
   '/dashboard/goals': typeof AuthenticatedDashboardGoalsRoute
   '/dashboard/help': typeof AuthenticatedDashboardHelpRoute
@@ -232,6 +241,7 @@ export interface FileRoutesById {
   '/_authenticated/admin/transactions': typeof AuthenticatedAdminTransactionsRoute
   '/_authenticated/admin/users': typeof AuthenticatedAdminUsersRoute
   '/_authenticated/admin/yields': typeof AuthenticatedAdminYieldsRoute
+  '/_authenticated/dashboard/accounts': typeof AuthenticatedDashboardAccountsRoute
   '/_authenticated/dashboard/copilot': typeof AuthenticatedDashboardCopilotRoute
   '/_authenticated/dashboard/goals': typeof AuthenticatedDashboardGoalsRoute
   '/_authenticated/dashboard/help': typeof AuthenticatedDashboardHelpRoute
@@ -259,6 +269,7 @@ export interface FileRouteTypes {
     | '/admin/transactions'
     | '/admin/users'
     | '/admin/yields'
+    | '/dashboard/accounts'
     | '/dashboard/copilot'
     | '/dashboard/goals'
     | '/dashboard/help'
@@ -282,6 +293,7 @@ export interface FileRouteTypes {
     | '/admin/transactions'
     | '/admin/users'
     | '/admin/yields'
+    | '/dashboard/accounts'
     | '/dashboard/copilot'
     | '/dashboard/goals'
     | '/dashboard/help'
@@ -308,6 +320,7 @@ export interface FileRouteTypes {
     | '/_authenticated/admin/transactions'
     | '/_authenticated/admin/users'
     | '/_authenticated/admin/yields'
+    | '/_authenticated/dashboard/accounts'
     | '/_authenticated/dashboard/copilot'
     | '/_authenticated/dashboard/goals'
     | '/_authenticated/dashboard/help'
@@ -434,6 +447,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AuthenticatedDashboardIndexRouteImport
       parentRoute: typeof AuthenticatedDashboardRoute
     }
+    '/_authenticated/dashboard/accounts': {
+      id: '/_authenticated/dashboard/accounts'
+      path: '/accounts'
+      fullPath: '/dashboard/accounts'
+      preLoaderRoute: typeof AuthenticatedDashboardAccountsRouteImport
+      parentRoute: typeof AuthenticatedDashboardRoute
+    }
     '/_authenticated/dashboard/copilot': {
       id: '/_authenticated/dashboard/copilot'
       path: '/copilot'
@@ -528,6 +548,7 @@ const AuthenticatedAdminRouteWithChildren =
   AuthenticatedAdminRoute._addFileChildren(AuthenticatedAdminRouteChildren)
 
 interface AuthenticatedDashboardRouteChildren {
+  AuthenticatedDashboardAccountsRoute: typeof AuthenticatedDashboardAccountsRoute
   AuthenticatedDashboardCopilotRoute: typeof AuthenticatedDashboardCopilotRoute
   AuthenticatedDashboardGoalsRoute: typeof AuthenticatedDashboardGoalsRoute
   AuthenticatedDashboardHelpRoute: typeof AuthenticatedDashboardHelpRoute
@@ -542,6 +563,7 @@ interface AuthenticatedDashboardRouteChildren {
 
 const AuthenticatedDashboardRouteChildren: AuthenticatedDashboardRouteChildren =
   {
+    AuthenticatedDashboardAccountsRoute: AuthenticatedDashboardAccountsRoute,
     AuthenticatedDashboardCopilotRoute: AuthenticatedDashboardCopilotRoute,
     AuthenticatedDashboardGoalsRoute: AuthenticatedDashboardGoalsRoute,
     AuthenticatedDashboardHelpRoute: AuthenticatedDashboardHelpRoute,
