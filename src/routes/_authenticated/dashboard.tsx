@@ -10,6 +10,7 @@ import {
   Settings,
   Target,
   Wallet,
+  Landmark,
 } from "lucide-react";
 import { AppShell, type NavItem } from "@/components/nexafi/app-shell";
 import { user } from "@/lib/mock-data";
@@ -17,6 +18,7 @@ import { user } from "@/lib/mock-data";
 const items: NavItem[] = [
   { label: "Dashboard", to: "/dashboard", icon: Gauge },
   { label: "AI Copilot", to: "/dashboard/copilot", icon: Bot },
+  { label: "Accounts", to: "/dashboard/accounts", icon: Landmark },
   { label: "Portfolio", to: "/dashboard/portfolio", icon: Wallet },
   { label: "Markets", to: "/dashboard/markets", icon: LineChart },
   { label: "Spend", to: "/dashboard/spend", icon: CreditCard },
