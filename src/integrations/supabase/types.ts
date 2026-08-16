@@ -65,6 +65,39 @@ export type Database = {
         }
         Relationships: []
       }
+      audit_events: {
+        Row: {
+          action: string
+          actor_email: string | null
+          actor_id: string | null
+          created_at: string
+          id: string
+          metadata: Json
+          target_id: string | null
+          target_type: string | null
+        }
+        Insert: {
+          action: string
+          actor_email?: string | null
+          actor_id?: string | null
+          created_at?: string
+          id?: string
+          metadata?: Json
+          target_id?: string | null
+          target_type?: string | null
+        }
+        Update: {
+          action?: string
+          actor_email?: string | null
+          actor_id?: string | null
+          created_at?: string
+          id?: string
+          metadata?: Json
+          target_id?: string | null
+          target_type?: string | null
+        }
+        Relationships: []
+      }
       beneficiaries: {
         Row: {
           account_number: string | null
@@ -146,6 +179,69 @@ export type Database = {
         }
         Relationships: []
       }
+      kyc_submissions: {
+        Row: {
+          aml_flag: boolean
+          business_name: string | null
+          business_reg_number: string | null
+          created_at: string
+          document_url: string | null
+          id: string
+          id_number: string
+          id_type: string
+          kind: string
+          review_notes: string | null
+          reviewed_at: string | null
+          reviewed_by: string | null
+          risk_score: number
+          selfie_url: string | null
+          status: string
+          tier_requested: number
+          updated_at: string
+          user_id: string
+        }
+        Insert: {
+          aml_flag?: boolean
+          business_name?: string | null
+          business_reg_number?: string | null
+          created_at?: string
+          document_url?: string | null
+          id?: string
+          id_number: string
+          id_type: string
+          kind?: string
+          review_notes?: string | null
+          reviewed_at?: string | null
+          reviewed_by?: string | null
+          risk_score?: number
+          selfie_url?: string | null
+          status?: string
+          tier_requested?: number
+          updated_at?: string
+          user_id: string
+        }
+        Update: {
+          aml_flag?: boolean
+          business_name?: string | null
+          business_reg_number?: string | null
+          created_at?: string
+          document_url?: string | null
+          id?: string
+          id_number?: string
+          id_type?: string
+          kind?: string
+          review_notes?: string | null
+          reviewed_at?: string | null
+          reviewed_by?: string | null
+          risk_score?: number
+          selfie_url?: string | null
+          status?: string
+          tier_requested?: number
+          updated_at?: string
+          user_id?: string
+        }
+        Relationships: []
+      }
       profiles: {
         Row: {
           country: string
@@ -221,6 +317,33 @@ export type Database = {
           strategy?: string
           updated_at?: string
           user_id?: string
+        }
+        Relationships: []
+      }
+      tier_limits: {
+        Row: {
+          created_at: string
+          daily_limit_usd: number
+          label: string
+          requirements: string
+          single_limit_usd: number
+          tier: number
+        }
+        Insert: {
+          created_at?: string
+          daily_limit_usd: number
+          label: string
+          requirements: string
+          single_limit_usd: number
+          tier: number
+        }
+        Update: {
+          created_at?: string
+          daily_limit_usd?: number
+          label?: string
+          requirements?: string
+          single_limit_usd?: number
+          tier?: number
         }
         Relationships: []
       }
