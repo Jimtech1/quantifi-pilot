@@ -4,9 +4,12 @@ import {
   Bot,
   CreditCard,
   Gauge,
+  Globe2,
   Landmark,
   ScrollText,
   Settings,
+  ShieldCheck,
+  UserCog,
   Users,
   Wallet,
 } from "lucide-react";
@@ -15,7 +18,10 @@ import { AppShell, type NavItem } from "@/components/nexafi/app-shell";
 const items: NavItem[] = [
   { label: "Dashboard", to: "/admin", icon: Gauge },
   { label: "Users", to: "/admin/users", icon: Users },
+  { label: "KYC / KYB Queue", to: "/admin/kyc", icon: ShieldCheck },
+  { label: "Roles & Access", to: "/admin/roles", icon: UserCog },
   { label: "Transactions", to: "/admin/transactions", icon: Wallet },
+  { label: "Payout Corridors", to: "/admin/corridors", icon: Globe2 },
   { label: "AI Strategies", to: "/admin/strategies", icon: Bot },
   { label: "Analytics", to: "/admin/analytics", icon: Activity },
   { label: "Yield Opportunities", to: "/admin/yields", icon: Landmark },
