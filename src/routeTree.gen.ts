@@ -31,7 +31,6 @@ import { Route as AuthenticatedDashboardGoalsRouteImport } from './routes/_authe
 import { Route as AuthenticatedDashboardHelpRouteImport } from './routes/_authenticated/dashboard.help'
 import { Route as AuthenticatedDashboardMarketsRouteImport } from './routes/_authenticated/dashboard.markets'
 import { Route as AuthenticatedDashboardPortfolioRouteImport } from './routes/_authenticated/dashboard.portfolio'
-import { Route as AuthenticatedDashboardSendReceiveRouteImport } from './routes/_authenticated/dashboard.send-receive'
 import { Route as AuthenticatedDashboardSettingsRouteImport } from './routes/_authenticated/dashboard.settings'
 import { Route as AuthenticatedDashboardSpendRouteImport } from './routes/_authenticated/dashboard.spend'
 import { Route as AuthenticatedDashboardTransactionsRouteImport } from './routes/_authenticated/dashboard.transactions'
@@ -159,12 +158,6 @@ const AuthenticatedDashboardPortfolioRoute =
     path: '/portfolio',
     getParentRoute: () => AuthenticatedDashboardRoute,
   } as any)
-const AuthenticatedDashboardSendReceiveRoute =
-  AuthenticatedDashboardSendReceiveRouteImport.update({
-    id: '/send-receive',
-    path: '/send-receive',
-    getParentRoute: () => AuthenticatedDashboardRoute,
-  } as any)
 const AuthenticatedDashboardSettingsRoute =
   AuthenticatedDashboardSettingsRouteImport.update({
     id: '/settings',
@@ -216,7 +209,6 @@ export interface FileRoutesByFullPath {
   '/dashboard/help': typeof AuthenticatedDashboardHelpRoute
   '/dashboard/markets': typeof AuthenticatedDashboardMarketsRoute
   '/dashboard/portfolio': typeof AuthenticatedDashboardPortfolioRoute
-  '/dashboard/send-receive': typeof AuthenticatedDashboardSendReceiveRoute
   '/dashboard/settings': typeof AuthenticatedDashboardSettingsRoute
   '/dashboard/spend': typeof AuthenticatedDashboardSpendRoute
   '/dashboard/transactions': typeof AuthenticatedDashboardTransactionsRoute
@@ -243,7 +235,6 @@ export interface FileRoutesByTo {
   '/dashboard/help': typeof AuthenticatedDashboardHelpRoute
   '/dashboard/markets': typeof AuthenticatedDashboardMarketsRoute
   '/dashboard/portfolio': typeof AuthenticatedDashboardPortfolioRoute
-  '/dashboard/send-receive': typeof AuthenticatedDashboardSendReceiveRoute
   '/dashboard/settings': typeof AuthenticatedDashboardSettingsRoute
   '/dashboard/spend': typeof AuthenticatedDashboardSpendRoute
   '/dashboard/transactions': typeof AuthenticatedDashboardTransactionsRoute
@@ -274,7 +265,6 @@ export interface FileRoutesById {
   '/_authenticated/dashboard/help': typeof AuthenticatedDashboardHelpRoute
   '/_authenticated/dashboard/markets': typeof AuthenticatedDashboardMarketsRoute
   '/_authenticated/dashboard/portfolio': typeof AuthenticatedDashboardPortfolioRoute
-  '/_authenticated/dashboard/send-receive': typeof AuthenticatedDashboardSendReceiveRoute
   '/_authenticated/dashboard/settings': typeof AuthenticatedDashboardSettingsRoute
   '/_authenticated/dashboard/spend': typeof AuthenticatedDashboardSpendRoute
   '/_authenticated/dashboard/transactions': typeof AuthenticatedDashboardTransactionsRoute
@@ -305,7 +295,6 @@ export interface FileRouteTypes {
     | '/dashboard/help'
     | '/dashboard/markets'
     | '/dashboard/portfolio'
-    | '/dashboard/send-receive'
     | '/dashboard/settings'
     | '/dashboard/spend'
     | '/dashboard/transactions'
@@ -332,7 +321,6 @@ export interface FileRouteTypes {
     | '/dashboard/help'
     | '/dashboard/markets'
     | '/dashboard/portfolio'
-    | '/dashboard/send-receive'
     | '/dashboard/settings'
     | '/dashboard/spend'
     | '/dashboard/transactions'
@@ -362,7 +350,6 @@ export interface FileRouteTypes {
     | '/_authenticated/dashboard/help'
     | '/_authenticated/dashboard/markets'
     | '/_authenticated/dashboard/portfolio'
-    | '/_authenticated/dashboard/send-receive'
     | '/_authenticated/dashboard/settings'
     | '/_authenticated/dashboard/spend'
     | '/_authenticated/dashboard/transactions'
@@ -534,13 +521,6 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AuthenticatedDashboardPortfolioRouteImport
       parentRoute: typeof AuthenticatedDashboardRoute
     }
-    '/_authenticated/dashboard/send-receive': {
-      id: '/_authenticated/dashboard/send-receive'
-      path: '/send-receive'
-      fullPath: '/dashboard/send-receive'
-      preLoaderRoute: typeof AuthenticatedDashboardSendReceiveRouteImport
-      parentRoute: typeof AuthenticatedDashboardRoute
-    }
     '/_authenticated/dashboard/settings': {
       id: '/_authenticated/dashboard/settings'
       path: '/settings'
@@ -615,7 +595,6 @@ interface AuthenticatedDashboardRouteChildren {
   AuthenticatedDashboardHelpRoute: typeof AuthenticatedDashboardHelpRoute
   AuthenticatedDashboardMarketsRoute: typeof AuthenticatedDashboardMarketsRoute
   AuthenticatedDashboardPortfolioRoute: typeof AuthenticatedDashboardPortfolioRoute
-  AuthenticatedDashboardSendReceiveRoute: typeof AuthenticatedDashboardSendReceiveRoute
   AuthenticatedDashboardSettingsRoute: typeof AuthenticatedDashboardSettingsRoute
   AuthenticatedDashboardSpendRoute: typeof AuthenticatedDashboardSpendRoute
   AuthenticatedDashboardTransactionsRoute: typeof AuthenticatedDashboardTransactionsRoute
@@ -632,8 +611,6 @@ const AuthenticatedDashboardRouteChildren: AuthenticatedDashboardRouteChildren =
     AuthenticatedDashboardHelpRoute: AuthenticatedDashboardHelpRoute,
     AuthenticatedDashboardMarketsRoute: AuthenticatedDashboardMarketsRoute,
     AuthenticatedDashboardPortfolioRoute: AuthenticatedDashboardPortfolioRoute,
-    AuthenticatedDashboardSendReceiveRoute:
-      AuthenticatedDashboardSendReceiveRoute,
     AuthenticatedDashboardSettingsRoute: AuthenticatedDashboardSettingsRoute,
     AuthenticatedDashboardSpendRoute: AuthenticatedDashboardSpendRoute,
     AuthenticatedDashboardTransactionsRoute:
