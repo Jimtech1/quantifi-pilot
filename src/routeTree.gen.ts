@@ -35,6 +35,7 @@ import { Route as AuthenticatedDashboardSendReceiveRouteImport } from './routes/
 import { Route as AuthenticatedDashboardSettingsRouteImport } from './routes/_authenticated/dashboard.settings'
 import { Route as AuthenticatedDashboardSpendRouteImport } from './routes/_authenticated/dashboard.spend'
 import { Route as AuthenticatedDashboardTransactionsRouteImport } from './routes/_authenticated/dashboard.transactions'
+import { Route as AuthenticatedDashboardTransferRouteImport } from './routes/_authenticated/dashboard.transfer'
 import { Route as AuthenticatedDashboardVerifyRouteImport } from './routes/_authenticated/dashboard.verify'
 
 const IndexRoute = IndexRouteImport.update({
@@ -182,6 +183,12 @@ const AuthenticatedDashboardTransactionsRoute =
     path: '/transactions',
     getParentRoute: () => AuthenticatedDashboardRoute,
   } as any)
+const AuthenticatedDashboardTransferRoute =
+  AuthenticatedDashboardTransferRouteImport.update({
+    id: '/transfer',
+    path: '/transfer',
+    getParentRoute: () => AuthenticatedDashboardRoute,
+  } as any)
 const AuthenticatedDashboardVerifyRoute =
   AuthenticatedDashboardVerifyRouteImport.update({
     id: '/verify',
@@ -213,6 +220,7 @@ export interface FileRoutesByFullPath {
   '/dashboard/settings': typeof AuthenticatedDashboardSettingsRoute
   '/dashboard/spend': typeof AuthenticatedDashboardSpendRoute
   '/dashboard/transactions': typeof AuthenticatedDashboardTransactionsRoute
+  '/dashboard/transfer': typeof AuthenticatedDashboardTransferRoute
   '/dashboard/verify': typeof AuthenticatedDashboardVerifyRoute
   '/admin/': typeof AuthenticatedAdminIndexRoute
   '/dashboard/': typeof AuthenticatedDashboardIndexRoute
@@ -239,6 +247,7 @@ export interface FileRoutesByTo {
   '/dashboard/settings': typeof AuthenticatedDashboardSettingsRoute
   '/dashboard/spend': typeof AuthenticatedDashboardSpendRoute
   '/dashboard/transactions': typeof AuthenticatedDashboardTransactionsRoute
+  '/dashboard/transfer': typeof AuthenticatedDashboardTransferRoute
   '/dashboard/verify': typeof AuthenticatedDashboardVerifyRoute
   '/admin': typeof AuthenticatedAdminIndexRoute
   '/dashboard': typeof AuthenticatedDashboardIndexRoute
@@ -269,6 +278,7 @@ export interface FileRoutesById {
   '/_authenticated/dashboard/settings': typeof AuthenticatedDashboardSettingsRoute
   '/_authenticated/dashboard/spend': typeof AuthenticatedDashboardSpendRoute
   '/_authenticated/dashboard/transactions': typeof AuthenticatedDashboardTransactionsRoute
+  '/_authenticated/dashboard/transfer': typeof AuthenticatedDashboardTransferRoute
   '/_authenticated/dashboard/verify': typeof AuthenticatedDashboardVerifyRoute
   '/_authenticated/admin/': typeof AuthenticatedAdminIndexRoute
   '/_authenticated/dashboard/': typeof AuthenticatedDashboardIndexRoute
@@ -299,6 +309,7 @@ export interface FileRouteTypes {
     | '/dashboard/settings'
     | '/dashboard/spend'
     | '/dashboard/transactions'
+    | '/dashboard/transfer'
     | '/dashboard/verify'
     | '/admin/'
     | '/dashboard/'
@@ -325,6 +336,7 @@ export interface FileRouteTypes {
     | '/dashboard/settings'
     | '/dashboard/spend'
     | '/dashboard/transactions'
+    | '/dashboard/transfer'
     | '/dashboard/verify'
     | '/admin'
     | '/dashboard'
@@ -354,6 +366,7 @@ export interface FileRouteTypes {
     | '/_authenticated/dashboard/settings'
     | '/_authenticated/dashboard/spend'
     | '/_authenticated/dashboard/transactions'
+    | '/_authenticated/dashboard/transfer'
     | '/_authenticated/dashboard/verify'
     | '/_authenticated/admin/'
     | '/_authenticated/dashboard/'
@@ -549,6 +562,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AuthenticatedDashboardTransactionsRouteImport
       parentRoute: typeof AuthenticatedDashboardRoute
     }
+    '/_authenticated/dashboard/transfer': {
+      id: '/_authenticated/dashboard/transfer'
+      path: '/transfer'
+      fullPath: '/dashboard/transfer'
+      preLoaderRoute: typeof AuthenticatedDashboardTransferRouteImport
+      parentRoute: typeof AuthenticatedDashboardRoute
+    }
     '/_authenticated/dashboard/verify': {
       id: '/_authenticated/dashboard/verify'
       path: '/verify'
@@ -599,6 +619,7 @@ interface AuthenticatedDashboardRouteChildren {
   AuthenticatedDashboardSettingsRoute: typeof AuthenticatedDashboardSettingsRoute
   AuthenticatedDashboardSpendRoute: typeof AuthenticatedDashboardSpendRoute
   AuthenticatedDashboardTransactionsRoute: typeof AuthenticatedDashboardTransactionsRoute
+  AuthenticatedDashboardTransferRoute: typeof AuthenticatedDashboardTransferRoute
   AuthenticatedDashboardVerifyRoute: typeof AuthenticatedDashboardVerifyRoute
   AuthenticatedDashboardIndexRoute: typeof AuthenticatedDashboardIndexRoute
 }
@@ -617,6 +638,7 @@ const AuthenticatedDashboardRouteChildren: AuthenticatedDashboardRouteChildren =
     AuthenticatedDashboardSpendRoute: AuthenticatedDashboardSpendRoute,
     AuthenticatedDashboardTransactionsRoute:
       AuthenticatedDashboardTransactionsRoute,
+    AuthenticatedDashboardTransferRoute: AuthenticatedDashboardTransferRoute,
     AuthenticatedDashboardVerifyRoute: AuthenticatedDashboardVerifyRoute,
     AuthenticatedDashboardIndexRoute: AuthenticatedDashboardIndexRoute,
   }
